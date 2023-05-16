@@ -1,0 +1,68 @@
+{{/* Vars */}}
+{{ $description := default (default .Site.Title .Site.Params.Description) (default .Summary .Description) }}
+{{ $keywords := default .Site.Params.Keywords .Page.Params.Keywords }}
+{{ $author := .Site.Author.name }}
+
+{{/* Brand */}}
+{{/* LOOKHERE: Move this to partial with size input */}}
+{{ $logoPNG := resources.Get (default "img/logo/logo.png" .Site.Params.logoPNG) }}
+{{ $logoSVG := resources.Get (default "img/logo/logo.svg" .Site.Params.logoSVG) }}
+{{ $logo256 := $logoPNG.Resize "256x" | resources.Copy (printf "/img/logo/%s256.png" (urlize .Site.Title)) }}
+{{ $logo512 := $logoPNG.Resize "512x" | resources.Copy (printf "/img/logo/%s512.png" (urlize .Site.Title)) }}
+{{ $logo1024 := $logoPNG.Resize "1024x" | resources.Copy (printf "/img/logo/%s1024.png" (urlize .Site.Title)) }}
+{{ $favicon := default $logo256 ($logoSVG | resources.Copy (printf "img/logo/%s.svg" (urlize .Site.Title))) }}
+
+{{/* Info */}}
+<title>{{ partial "title" . }}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{{ with $description }}<meta name="description" content="{{ . }}" />{{ end }}
+{{ with $keywords }}<meta name="keywords" content="{{ . }}" />{{ end }}
+{{ with $author }}<meta name="author" content="{{ . }}" />{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ partial "title" . }}" />
+<meta property="og:description" content="{{ $description }}" />
+{{ with $logo1024 }}
+  <meta property="og:image" content="{{ .RelPermalink }}">
+{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ partial "title" . }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+{{ with $logo256 }}
+  <meta name="twitter:image" content="{{ .RelPermalink }}" />
+{{ end }}
+
+{{/* Icon */}}
+{{ with $favicon }}
+  <link rel="icon" href="{{ .RelPermalink }}" />
+{{ end }}
+
+{{/* Style */}}
+{{ $styleOptions := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+{{ $styleSCSS := resources.Get "scss/_style.scss" }}
+{{ $styleHugo := resources.Match "scss/*.go.scss" }}
+{{ $styleCSS := "" }}
+{{ if $styleHugo }}
+  {{ $styleHugo := $styleHugo | resources.Concat "scss/_hugo.go.scss" | resources.ExecuteAsTemplate "scss/_hugo.scss" . }}
+  {{ $styleCSS = slice $styleSCSS $styleHugo | resources.Concat "scss/style.scss" | resources.ToCSS $styleOptions }}
+{{ else }}
+  {{ $styleCSS = $styleSCSS | resources.ToCSS $styleOptions }}
+{{ end }}
+{{ $styleSRI := $styleCSS | resources.Fingerprint "sha384" }}
+<link rel="stylesheet" href="{{ $styleSRI.RelPermalink }}" integrity="{{ $styleSRI.Data.Integrity }}" />
+
+{{/* Canonical */}}
+{{ with .Permalink }}
+  <link rel="canonical" href="{{ . }}" />
+{{ end }}
+
+{{/* Manifest */}}
+{{ if (ne false (default true .Site.Params.manifestJSON)) }}
+  {{ $manifestJSON := resources.Get "manifest.go.json" | resources.ExecuteAsTemplate "manifest.json" . }}
+  <link rel="manifest" href="{{ $manifestJSON.RelPermalink }}" />
+{{ end }}

@@ -1,0 +1,29 @@
+<footer class="d-flex mt-auto py-3 mt-3 bg-body-tertiary">
+<div class="container mt-3">
+  {{ if .Site.Menus.footer }}
+    <ul class="nav justify-content-center pb-3 mb-3">
+      {{ range .Site.Menus.footer }}
+        <li class="nav-item">
+          <a class="nav-link px-2" href="{{ .URL }}" title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top">
+    {{ if .Site.Copyright }}
+      <div class="d-flex justify-content-center">
+        <p class="text-muted mt-3">
+          &copy; {{ with $.Site.Params.copyrightStart }}{{ . }}-{{ end }}{{ dateFormat "2006" now }} <a href="{{ .Site.BaseURL }}">{{ .Site.Copyright }}</a>
+        </p>
+      </div>
+    {{ end }}
+
+    <div class="d-flex justify-content-center fs-4">
+      {{ partial "connect" . }}
+    </div>
+  </div>
+</div>
+</footer>

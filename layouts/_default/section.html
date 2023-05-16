@@ -1,0 +1,23 @@
+{{/* Main */}}
+{{ define "main" }}
+  {{ partial "banner" . }}
+
+	<div class="container my-4">
+		{{ .Content | safeHTML }}
+		<div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4">
+      {{ range .Pages }}
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ with .Page.Params.Icon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .Page.Title }}</h5>
+              <p class="card-text">{{ .Page.Description }}</p>
+            </div>
+            <div class="card-footer text-center">
+              <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary">View {{ partial "icon" "chevrons-right" }}</a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+		</div>
+	</div>
+{{ end }}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html
+  {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}
+  data-bs-theme="auto"
+>
+	<head>
+    {{- partial "head.html" . -}}
+    {{- block "head" . }}{{- end }}
+	</head>
+  <body class="d-flex flex-column min-vh-100">
+    {{- partial "header.html" . -}}
+    {{- block "header" . }}{{- end }}
+    <main>
+      {{- block "main" . }}{{- end }}
+    </main>
+    {{ if (ne .Site.Params.footerState false) }}
+      {{- partial "footer.html" . -}}
+    {{ end }}
+    {{- partial "foot.html" . -}}
+    {{- block "foot" . }}{{- end }}
+  </body>
+</html>

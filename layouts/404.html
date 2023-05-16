@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <div class="container my-5 text-center fs-2">
+    
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+
+    {{ partial "icon" "tornado" }}
+
+    <p class="lead my-3">The page you are seeking does not exist or has gone missing.</p>
+    <a href="{{ .Site.BaseURL }}" class="btn btn-lg btn-secondary my-3" role="button">
+      Back Home {{ partial "icon" "chevrons-right" }}
+    </a>
+  </div>
+{{ end }}

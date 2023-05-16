@@ -1,0 +1,13 @@
+{{/* Bootstrap */}}
+{{ if (ne false (default true .Site.Params.bootstrapJS)) }}
+  {{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
+  {{ $bootstrapSRI := $bootstrapJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $bootstrapSRI.RelPermalink }}" integrity="{{ $bootstrapSRI.Data.Integrity }}"></script>
+{{ end }}
+
+{{/* Main */}}
+{{ $shockJS := resources.Get "js/shock.js" }}
+{{ $siteJS := resources.Get "js/site.js" }}
+{{ $mainJS := slice $shockJS $siteJS | resources.Concat "js/main.js" | minify }}
+{{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
+<script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>

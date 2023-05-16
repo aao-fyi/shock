@@ -1,0 +1,12 @@
+name = 'shock'
+license = 'MIT'
+licenselink = 'https://gitlab.com/aao-fyi/shock/-/blob/main/LICENSE'
+description = ''
+homepage = 'https://gitlab.com/aao-fyi/shock'
+tags = ['bootstrap', 'shock']
+features = []
+min_version = '0.110.0' # If changed, update hugo.toml
+
+[author]
+  name = 'aao.fyi'
+  homepage = 'https://aao.fyi/'

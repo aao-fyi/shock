@@ -1,0 +1,7 @@
+{{/* Main */}}
+{{ define "main" }}
+  <div class="container">
+    <h1>{{ .Page.Title }}</h1>
+    {{ .Content | safeHTML }}
+  </div>
+{{ end }}

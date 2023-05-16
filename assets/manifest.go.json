@@ -1,0 +1,40 @@
+{{ $logoPNG := resources.Get (default "img/logo/logo.png" .Site.Params.logoPNG) }}
+{{ $logo48 := $logoPNG.Resize "48x" | resources.Copy (printf "/img/logo/%s48.png" (urlize .Site.Title)) }}
+{{ $logo72 := $logoPNG.Resize "72x" | resources.Copy (printf "/img/logo/%s72.png" (urlize .Site.Title)) }}
+{{ $logo96 := $logoPNG.Resize "96x" | resources.Copy (printf "/img/logo/%s96.png" (urlize .Site.Title)) }}
+{{ $logo144 := $logoPNG.Resize "144x" | resources.Copy (printf "/img/logo/%s144.png" (urlize .Site.Title)) }}
+{{ $logo168 := $logoPNG.Resize "168x" | resources.Copy (printf "/img/logo/%s168.png" (urlize .Site.Title)) }}
+{{ $logo192 := $logoPNG.Resize "192x" | resources.Copy (printf "/img/logo/%s192.png" (urlize .Site.Title)) }}
+{
+  "name": "{{ .Site.Title }}",
+  "short_name": "{{ .Site.Title }}",
+  "start_url": "{{ .Site.BaseURL }}",
+  "display": "standalone",
+  "background_color": "{{ .Site.Params.manifestColorBG }}",
+  "description": "{{ .Site.Params.Description }}",
+  "icons": [{
+    "src": "{{ $logo48.RelPermalink }}",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "{{ $logo72.RelPermalink }}",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "{{ $logo96.RelPermalink }}",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "{{ $logo144.RelPermalink }}",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "{{ $logo168.RelPermalink }}",
+    "sizes": "168x168",
+    "type": "image/png"
+  }, {
+    "src": "{{ $logo192.RelPermalink }}",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}

@@ -1,0 +1,8 @@
+github.com/lucide-icons/lucide v0.127.0 h1:1jCXavIUx5mfDfsN63BmBOMuG3R+7SjMtQRIWrGvTHA=
+github.com/lucide-icons/lucide v0.127.0/go.mod h1:0HX/9u6n25zuV2HgBIuqfMfDktGNXmsvYqL1cOK4aWc=
+github.com/simple-icons/simple-icons v0.0.0-20230319091240-7735c9f92092 h1:7OOgUnNoWGcGVHMgSKsqRXE35M53S38y9PeuWgKmaM4=
+github.com/simple-icons/simple-icons v0.0.0-20230319091240-7735c9f92092/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
+github.com/twbs/bootstrap v5.3.0-alpha2+incompatible h1:1AOkDPZ3DgC7AznxgSVY3hhLPbC9bAB61T3pUSUJvsk=
+github.com/twbs/bootstrap v5.3.0-alpha2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
+github.com/twbs/rfs v10.0.0+incompatible h1:lMyvQ7s06iPYrTFQrv7huR/xr9PvuSov7lA5mXtRx0A=
+github.com/twbs/rfs v10.0.0+incompatible/go.mod h1:mbMdcvcjCRHHt4qGxZ2creZ2xS7uR1x1xA5b+dYgIzo=

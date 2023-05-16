@@ -1,0 +1,8 @@
+{{ $dist := .Attributes.dist | default "" }}
+{{ $code := .Inner }}
+
+{{ with $dist }}
+  {{ $code = printf "# %s\n%s" (humanize $dist) $code }}
+{{ end }}
+
+{{ highlight $code .Type }}

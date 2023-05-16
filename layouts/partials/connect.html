@@ -1,0 +1,14 @@
+{{ if .Site.Menus.connect }}
+  <ul class="nav">
+
+    {{ range .Site.Menus.connect }}
+      {{ $icon := lower .Name }}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
+          {{ partial "icon-brand" $icon }}
+        </a>
+      </li>
+    {{ end }}
+
+  </ul>
+{{ end }}

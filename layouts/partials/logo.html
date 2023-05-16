@@ -1,0 +1,9 @@
+{{/* $logoSize := . */}}
+
+{{/* $logoPNG := resources.Get (default "img/logo/logo.png" .Site.Params.logoPNG) */}}
+
+{{/* $logo256 := $logoPNG.Resize "256x" | resources.Copy (printf "/img/logo/%s256.png" (urlize .Site.Title)) */}}
+{{/* $logo512 := $logoPNG.Resize "512x" | resources.Copy (printf "/img/logo/%s512.png" (urlize .Site.Title)) */}}
+{{/* $logo1024 := $logoPNG.Resize "1024x" | resources.Copy (printf "/img/logo/%s1024.png" (urlize .Site.Title)) */}}
+
+{{/* $logo256.RelPermalink */}}

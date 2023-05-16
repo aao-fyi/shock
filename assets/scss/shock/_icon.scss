@@ -1,0 +1,11 @@
+.icon {
+  display: inline-block;
+  line-height: 0;
+}
+.icon svg {
+  width: 1em;
+  height: 1em;
+}
+.icon-brand svg {
+  fill: currentColor;
+}

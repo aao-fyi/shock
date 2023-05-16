@@ -1,0 +1,76 @@
+<header class="{{ with .Site.Params.navbarFixedTop }}sticky-top {{ end }}bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+
+      {{/* Sidebar Toggler */}}
+      {{ if .IsPage }}
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-controls="sidebar-tableofcontents">
+        {{ partial "icon" "sidebar-open" }}
+      </button>
+      {{ end }}
+
+      {{/* Brand */}}
+      {{ if or (.Site.Params.navbarBrandLogo) (.Site.Params.navbarBrandText) }}
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+
+          {{/* Brand Logo */}}
+          {{ if .Site.Params.navbarBrandLogo }}
+            <img src="{{ printf "/img/logo/%s256.png" (urlize .Site.Title) }}" alt="{{ .Site.Title }}" height="50" />
+          {{ end }}
+
+          {{/* Brand Text */}}
+          {{ if .Site.Params.navbarBrandText }}
+            {{ .Site.Title }}
+          {{ end }}
+
+        </a>
+      {{ end }}
+
+      {{/* Navbar Toggler */}}
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-open">{{ partial "icon" "menu" }}</span>
+        <span class="navbar-toggler-close">{{ partial "icon" "x" }}</span>
+      </button>
+
+      <div id="navbar-menu-items" class="navbar-collapse justify-content-end collapse">
+        <ul class="navbar-nav fs-5">
+          {{/* $currentPage := . */}}
+          {{ range .Site.Menus.main }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
+
+          {{/* Theme */}}
+          <li class="nav-item dropdown">
+            {{/* Theme Toggler */}}
+            <button class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown" title="Theme">
+              {{ partial "icon" "paintbrush" }}
+            </button>
+
+            {{/* Theme Options */}}
+            <ul class="dropdown-menu dropdown-menu-end">
+              {{/* Auto */}}
+              <li class="dropdown-item">
+                <button class="btn btn-link" type="button" data-bs-theme-value="auto">{{ partial "icon" "contrast" }} Auto</button>
+              </li>
+
+              {{/* Light */}}
+              <li class="dropdown-item">
+                <button class="btn btn-link" type="button" data-bs-theme-value="light">{{ partial "icon" "sun" }} Light</button>
+              </li>
+
+              {{/* Dark */}}
+              <li class="dropdown-item">
+                <button class="btn btn-link" type="button" data-bs-theme-value="dark">{{ partial "icon" "moon" }} Dark</button>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
