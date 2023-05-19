@@ -53,12 +53,12 @@
 {{ end }}
 
 {{ $styleCSS := $styleSCSS | resources.ToCSS $styleOptions }}
-{{ if isset .Site.Params.PostCSS }}
+{{ if .Site.Params.postCSS }}
   {{ $styleCSS = $styleCSS | resources.PostCSS }}
 {{ end }}
 
 {{ $styleLink := "" }}
-{{ if and (isset .Site.Params.PostCSS) (hugo.IsProduction) }}
+{{ if and (.Site.Params.postCSS) (hugo.IsProduction) }}
   {{ $styleLink = $styleCSS | resources.Fingerprint "sha384" | resources.PostProcess }}
 {{ else }}
   {{ $styleLink = $styleCSS | resources.Fingerprint "sha384" }}

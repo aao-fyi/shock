@@ -30,8 +30,9 @@ enableRobotsTXT = true
 [params]
   # Bootstrap JS
   bootstrapJS = true
+  # PostCSS
+  postCSS = false
   # Copyright
-  copyright = true
   copyrightStart = ''
   license = ''
   # Navbar
