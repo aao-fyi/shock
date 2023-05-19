@@ -46,15 +46,29 @@
 {{ $styleOptions := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 {{ $styleSCSS := resources.Get "scss/_style.scss" }}
 {{ $styleHugo := resources.Match "scss/*.go.scss" }}
-{{ $styleCSS := "" }}
+
 {{ if $styleHugo }}
   {{ $styleHugo := $styleHugo | resources.Concat "scss/_hugo.go.scss" | resources.ExecuteAsTemplate "scss/_hugo.scss" . }}
-  {{ $styleCSS = slice $styleSCSS $styleHugo | resources.Concat "scss/style.scss" | resources.ToCSS $styleOptions }}
-{{ else }}
-  {{ $styleCSS = $styleSCSS | resources.ToCSS $styleOptions }}
+  {{ $styleSCSS = slice $styleSCSS $styleHugo | resources.Concat "scss/style.scss" }}
 {{ end }}
-{{ $styleSRI := $styleCSS | resources.Fingerprint "sha384" }}
-<link rel="stylesheet" href="{{ $styleSRI.RelPermalink }}" integrity="{{ $styleSRI.Data.Integrity }}" />
+
+{{ $styleCSS := $styleSCSS | resources.ToCSS $styleOptions }}
+{{ if isset .Site.Params.PostCSS }}
+  {{ $styleCSS = $styleCSS | resources.PostCSS }}
+{{ end }}
+
+{{ $styleLink := "" }}
+{{ if and (isset .Site.Params.PostCSS) (hugo.IsProduction) }}
+  {{ $styleLink = $styleCSS | resources.Fingerprint "sha384" | resources.PostProcess }}
+{{ else }}
+  {{ $styleLink = $styleCSS | resources.Fingerprint "sha384" }}
+{{ end }}
+
+<link
+  rel="stylesheet"
+  href="{{ $styleLink.RelPermalink }}"
+  integrity="{{ $styleLink.Data.Integrity }}"
+/>
 
 {{/* Canonical */}}
 {{ with .Permalink }}
