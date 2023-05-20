@@ -33,3 +33,8 @@
   [[module.imports.mounts]]
     source = 'icons/'
     target = 'assets/icons/simple/'
+
+# Build
+[build]
+  # PostCSS
+  writeStats = true
