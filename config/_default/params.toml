@@ -1,0 +1,16 @@
+# Bootstrap JS
+bootstrapJS = true
+# PostCSS
+postCSS = false
+# Copyright
+copyrightStart = ''
+license = ''
+# Navbar
+navbarBrandLogo = false
+navbarBrandText = true
+navbarFixedTop = true
+# Footer
+footerState = true
+# Manifest
+manifestJSON = true
+manifestColorBG = '#333'

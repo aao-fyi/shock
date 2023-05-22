@@ -1,0 +1,26 @@
+# Info
+baseURL = 'https://shock.aao.fyi/'
+languageCode = 'en'
+title = 'Shock'
+copyright = 'aao.fyi'
+
+# Theme
+# Replace 'gitlab.com' with 'github.com' if error loading
+theme = 'gitlab.com/aao-fyi/shock'
+
+# Features
+disableHugoGeneratorInject = false
+disableKinds = []
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Minify
+[minify]
+  minifyOutput = true
+
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.110.0'
