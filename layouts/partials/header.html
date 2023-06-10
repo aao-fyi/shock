@@ -27,6 +27,7 @@
       {{ end }}
 
       {{/* Navbar Toggler */}}
+      {{ if or (.Site.Menus.main) (.Site.Params.bootstrapJS) }}
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-open">{{ partial "icon" "menu" }}</span>
         <span class="navbar-toggler-close">{{ partial "icon" "x" }}</span>
@@ -73,6 +74,7 @@
 
         </ul>
       </div>
+      {{ end }}
     </div>
   </nav>
 </header>
