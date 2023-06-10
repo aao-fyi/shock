@@ -11,7 +11,7 @@
 
       {{/* Brand */}}
       {{ if or (.Site.Params.navbarBrandLogo) (.Site.Params.navbarBrandText) }}
-        <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+        <a class="navbar-brand py-0" href="{{ .Site.BaseURL }}">
 
           {{/* Brand Logo */}}
           {{ if .Site.Params.navbarBrandLogo }}
@@ -44,30 +44,32 @@
           {{ end }}
 
           {{/* Theme */}}
-          <li class="nav-item dropdown">
-            {{/* Theme Toggler */}}
-            <button class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown" title="Theme">
-              {{ partial "icon" "paintbrush" }}
-            </button>
+          {{ if .Site.Params.bootstrapJS }}
+            <li class="nav-item dropdown">
+              {{/* Theme Toggler */}}
+              <button class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown" title="Theme">
+                {{ partial "icon" "paintbrush" }}
+              </button>
 
-            {{/* Theme Options */}}
-            <ul class="dropdown-menu dropdown-menu-end">
-              {{/* Auto */}}
-              <li class="dropdown-item">
-                <button class="btn btn-link" type="button" data-bs-theme-value="auto">{{ partial "icon" "contrast" }} Auto</button>
-              </li>
+              {{/* Theme Options */}}
+              <ul class="dropdown-menu dropdown-menu-end">
+                {{/* Auto */}}
+                <li class="dropdown-item">
+                  <button class="btn btn-link" type="button" data-bs-theme-value="auto">{{ partial "icon" "contrast" }} Auto</button>
+                </li>
 
-              {{/* Light */}}
-              <li class="dropdown-item">
-                <button class="btn btn-link" type="button" data-bs-theme-value="light">{{ partial "icon" "sun" }} Light</button>
-              </li>
+                {{/* Light */}}
+                <li class="dropdown-item">
+                  <button class="btn btn-link" type="button" data-bs-theme-value="light">{{ partial "icon" "sun" }} Light</button>
+                </li>
 
-              {{/* Dark */}}
-              <li class="dropdown-item">
-                <button class="btn btn-link" type="button" data-bs-theme-value="dark">{{ partial "icon" "moon" }} Dark</button>
-              </li>
-            </ul>
-          </li>
+                {{/* Dark */}}
+                <li class="dropdown-item">
+                  <button class="btn btn-link" type="button" data-bs-theme-value="dark">{{ partial "icon" "moon" }} Dark</button>
+                </li>
+              </ul>
+            </li>
+          {{ end }}
 
         </ul>
       </div>

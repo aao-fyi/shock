@@ -8,12 +8,14 @@
     {{- block "head" . }}{{- end }}
 	</head>
   <body class="d-flex flex-column min-vh-100">
-    {{- partial "header.html" . -}}
+    {{ if .Site.Params.headerState }}
+      {{- partial "header.html" . -}}
+    {{ end }}
     {{- block "header" . }}{{- end }}
     <main>
       {{- block "main" . }}{{- end }}
     </main>
-    {{ if (ne .Site.Params.footerState false) }}
+    {{ if .Site.Params.footerState }}
       {{- partial "footer.html" . -}}
     {{ end }}
     {{- partial "foot.html" . -}}

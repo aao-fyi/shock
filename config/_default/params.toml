@@ -9,6 +9,8 @@ license = ''
 navbarBrandLogo = false
 navbarBrandText = true
 navbarFixedTop = true
+# Header
+headerState = true
 # Footer
 footerState = true
 # Manifest
