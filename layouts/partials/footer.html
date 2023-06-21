@@ -16,7 +16,7 @@
     {{ if .Site.Copyright }}
       <div class="d-flex justify-content-center">
         <p class="text-muted mt-3">
-          &copy; {{ with $.Site.Params.copyrightStart }}{{ . }}-{{ end }}{{ dateFormat "2006" now }} <a href="{{ .Site.BaseURL }}">{{ .Site.Copyright }}</a>
+          &copy; {{ with .Site.Params.copyrightStart }}{{ . }}-{{ end }}{{ dateFormat "2006" now }} <a href="{{ default .Site.BaseURL .Site.Params.copyrightLink }}">{{ .Site.Copyright }}</a>
         </p>
       </div>
     {{ end }}

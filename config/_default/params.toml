@@ -3,6 +3,7 @@ bootstrapJS = true
 # PostCSS
 postCSS = false
 # Copyright
+copyrightLink = ''
 copyrightStart = ''
 license = ''
 # Navbar
