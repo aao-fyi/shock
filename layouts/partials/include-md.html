@@ -1,0 +1,3 @@
+{{/* Include markdown file from assets */}}
+{{ $include := resources.Get . }}
+{{ $include | readFile | markdownify }}
