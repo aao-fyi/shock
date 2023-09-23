@@ -1,0 +1,28 @@
+.highlight pre {
+  -moz-tab-size:2;-o-tab-size:2;tab-size:2;
+	display: block;
+	overflow-x: auto;
+	padding: 1em;
+	border: 1px solid $secondary;
+	border-radius: 0.33rem;
+}
+.highlight-wrapper {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.copybtn {
+  position: absolute;
+	background: none;
+  right: 0;
+  top: 0;
+  margin-top: 0.8rem;
+	margin-right: 0.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 1.1rem;
+}
+.copybtn:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1.0);
+}
