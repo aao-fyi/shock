@@ -1,9 +1,5 @@
 # PostCSS
 postCSS = false
-# Copyright
-copyrightLink = ''
-copyrightStart = ''
-license = ''
 # Navbar
 navbarBrandLogo = false
 navbarBrandText = true
@@ -18,6 +14,12 @@ headerState = true
 # Footer
 [footer]
   state = true
+
+# Copyright
+[copyright]
+  name = ''
+  link = ''
+  year = ''
 
 # Manifest
 [manifest]

@@ -1,3 +1,4 @@
+{{ if .Site.Params.footer.state }}
 <footer class="d-flex mt-auto py-3 mt-3 bg-body-tertiary">
 <div class="container mt-3">
   {{ if .Site.Menus.footer }}
@@ -13,10 +14,10 @@
   {{ end }}
 
   <div class="d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top">
-    {{ if .Site.Copyright }}
+    {{ if or (.Site.Copyright) (.Site.Params.copyright.name) }}
       <div class="d-flex justify-content-center">
         <p class="text-muted mt-3">
-          &copy; {{ with .Site.Params.copyrightStart }}{{ . }}-{{ end }}{{ dateFormat "2006" now }} <a href="{{ default .Site.BaseURL .Site.Params.copyrightLink }}">{{ .Site.Copyright }}</a>
+          &copy; {{ with .Site.Params.copyright.year }}{{ . }}-{{ end }}{{ dateFormat "2006" now }} <a href="{{ default .Site.BaseURL .Site.Params.copyright.link }}">{{ default .Site.Copyright .Site.Params.copyright.name }}</a>
         </p>
       </div>
     {{ end }}
@@ -27,3 +28,4 @@
   </div>
 </div>
 </footer>
+{{ end }}
