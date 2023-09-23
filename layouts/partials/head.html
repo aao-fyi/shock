@@ -76,7 +76,7 @@
 {{ end }}
 
 {{/* Manifest */}}
-{{ if (ne false (default true .Site.Params.manifestJSON)) }}
+{{ if (ne false (default (default true .Site.Params.manifestJSON) .Site.Params.manifest.state)) }}
   {{ $manifestJSON := resources.Get "manifest.go.json" | resources.ExecuteAsTemplate "manifest.json" . }}
   <link rel="manifest" href="{{ $manifestJSON.RelPermalink }}" />
 {{ end }}

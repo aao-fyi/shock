@@ -10,7 +10,7 @@
   "short_name": "{{ .Site.Title }}",
   "start_url": "{{ .Site.BaseURL }}",
   "display": "standalone",
-  "background_color": "{{ .Site.Params.manifestColorBG }}",
+  "background_color": "{{ default (default "#333" .Site.Params.manifestColorBG) .Site.Params.manifest.background }}",
   "description": "{{ .Site.Params.Description }}",
   "icons": [{
     "src": "{{ $logo48.RelPermalink }}",

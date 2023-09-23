@@ -1,3 +1,8 @@
+# Manifest
+[ params.manifest ]
+  state = true
+  background = "#333"
+
 # Bootstrap JS
 bootstrapJS = true
 # PostCSS
@@ -14,6 +19,3 @@ navbarFixedTop = true
 headerState = true
 # Footer
 footerState = true
-# Manifest
-manifestJSON = true
-manifestColorBG = '#333'
