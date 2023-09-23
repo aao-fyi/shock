@@ -1,3 +1,3 @@
 module gitlab.com/aao-fyi/shock/exampleSite
 
-go 1.17
+go 1.18
