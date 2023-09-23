@@ -1,9 +1,0 @@
-# Footer
-[menu.footer]
-  identifier = 'rss'
-  name = 'RSS'
-  url = '/index.xml'
-[menu.footer]
-  identifier = 'sitemap'
-  name = 'Sitemap'
-  url = '/sitemap.xml'
