@@ -10,12 +10,14 @@ navbarBrandText = true
 navbarFixedTop = true
 # Header
 headerState = true
-# Footer
-footerState = true
 
 # Bootstrap
 [ params.bootstrap ]
   javascript = true
+
+# Footer
+[ params.footer ]
+  state = true
 
 # Manifest
 [ params.manifest ]

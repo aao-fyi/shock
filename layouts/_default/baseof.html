@@ -15,7 +15,7 @@
     <main>
       {{- block "main" . }}{{- end }}
     </main>
-    {{ if .Site.Params.footerState }}
+    {{ if .Site.Params.footer.state }}
       {{- partial "footer.html" . -}}
     {{ end }}
     {{- partial "foot.html" . -}}
