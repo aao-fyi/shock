@@ -1,5 +1,3 @@
-# Bootstrap JS
-bootstrapJS = true
 # PostCSS
 postCSS = false
 # Copyright
@@ -14,6 +12,10 @@ navbarFixedTop = true
 headerState = true
 # Footer
 footerState = true
+
+# Bootstrap
+[ params.bootstrap ]
+  javascript = true
 
 # Manifest
 [ params.manifest ]

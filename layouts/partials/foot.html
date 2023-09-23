@@ -1,5 +1,5 @@
 {{/* Bootstrap */}}
-{{ if (ne false (default true .Site.Params.bootstrapJS)) }}
+{{ if (ne false .Site.Params.bootstrap.javascript) }}
   {{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
   {{ $bootstrapSRI := $bootstrapJS | resources.Fingerprint "sha384" }}
   <script defer src="{{ $bootstrapSRI.RelPermalink }}" integrity="{{ $bootstrapSRI.Data.Integrity }}"></script>

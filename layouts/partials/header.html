@@ -27,7 +27,7 @@
       {{ end }}
 
       {{/* Navbar Toggler */}}
-      {{ if or (.Site.Menus.main) (.Site.Params.bootstrapJS) }}
+      {{ if or (.Site.Menus.main) (.Site.Params.bootstrap.javascript) }}
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-open">{{ partial "icon" "menu" }}</span>
         <span class="navbar-toggler-close">{{ partial "icon" "x" }}</span>
@@ -45,7 +45,7 @@
           {{ end }}
 
           {{/* Theme */}}
-          {{ if .Site.Params.bootstrapJS }}
+          {{ if .Site.Params.bootstrap.javascript }}
             <li class="nav-item dropdown">
               {{/* Theme Toggler */}}
               <button class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown" title="Theme">
