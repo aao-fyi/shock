@@ -12,14 +12,14 @@ navbarFixedTop = true
 headerState = true
 
 # Bootstrap
-[ params.bootstrap ]
+[bootstrap]
   javascript = true
 
 # Footer
-[ params.footer ]
+[footer]
   state = true
 
 # Manifest
-[ params.manifest ]
+[manifest]
   state = true
   background = "#333"
