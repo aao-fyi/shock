@@ -8,3 +8,6 @@ resources/
 
 # Node
 node_modules/
+
+# Text
+*.kate-swp

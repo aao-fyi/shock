@@ -5,3 +5,6 @@ jsconfig.json
 
 # Node
 node_modules/
+
+# Text
+*.kate-swp
