@@ -1,5 +1,3 @@
-# PostCSS
-postCSS = false
 # Navbar
 navbarBrandLogo = false
 navbarBrandText = true
@@ -10,6 +8,10 @@ headerState = true
 # Bootstrap
 [bootstrap]
   javascript = true
+
+# PostCSS
+[postCSS]
+  state = false
 
 # Footer
 [footer]

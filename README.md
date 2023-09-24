@@ -48,5 +48,6 @@ npm install postcss postcss-cli @fullhuman/postcss-purgecss
 Enable the `postCSS` parameter to enable PostCSS and utilize the PurgeCSS feature.
 
 ```toml
-postCSS = true
+[postCSS]
+  state = true
 ```
