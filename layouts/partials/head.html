@@ -54,7 +54,7 @@
 
 {{ $styleCSS := $styleSCSS | resources.ToCSS $styleOptions }}
 {{ if .Site.Params.postCSS.state }}
-  {{ $styleCSS = $styleCSS | resources.PostCSS.state }}
+  {{ $styleCSS = $styleCSS | resources.PostCSS }}
 {{ end }}
 
 {{ $styleLink := "" }}
