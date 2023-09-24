@@ -23,6 +23,11 @@
   link = ''
   year = ''
 
+# Logo
+[logo]
+  mainPNG = 'img/logo/logo.png'
+  brandPNG = 'img/logo/brand.png'
+
 # Manifest
 [manifest]
   state = true
