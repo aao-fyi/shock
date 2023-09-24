@@ -8,7 +8,7 @@
     {{- block "head" . }}{{- end }}
 	</head>
   <body class="d-flex flex-column min-vh-100">
-    {{ if .Site.Params.headerState }}
+    {{ if .Site.Params.header.state }}
       {{- partial "header.html" . -}}
     {{ end }}
     {{- block "header" . }}{{- end }}

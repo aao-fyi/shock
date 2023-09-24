@@ -1,10 +1,3 @@
-# Navbar
-navbarBrandLogo = false
-navbarBrandText = true
-navbarFixedTop = true
-# Header
-headerState = true
-
 # Bootstrap
 [bootstrap]
   javascript = true
@@ -12,6 +5,13 @@ headerState = true
 # PostCSS
 [postCSS]
   state = false
+
+# Header
+[header]
+  state = true
+  brandLogo = false
+  brandText = true
+  fixedTop = true
 
 # Footer
 [footer]

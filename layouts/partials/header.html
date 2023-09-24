@@ -1,4 +1,4 @@
-<header class="{{ with .Site.Params.navbarFixedTop }}sticky-top {{ end }}bg-primary">
+<header class="{{ with .Site.Params.header.fixedTop }}sticky-top {{ end }}bg-primary">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
 
@@ -10,16 +10,16 @@
       {{ end }}
 
       {{/* Brand */}}
-      {{ if or (.Site.Params.navbarBrandLogo) (.Site.Params.navbarBrandText) }}
+      {{ if or (.Site.Params.header.brandLogo) (.Site.Params.header.brandText) }}
         <a class="navbar-brand py-0" href="{{ .Site.BaseURL }}">
 
           {{/* Brand Logo */}}
-          {{ if .Site.Params.navbarBrandLogo }}
             <img src="{{ printf "/img/logo/%s256.png" (urlize .Site.Title) }}" alt="{{ .Site.Title }}" height="50" />
+          {{ if .Site.Params.header.brandLogo }}
           {{ end }}
 
           {{/* Brand Text */}}
-          {{ if .Site.Params.navbarBrandText }}
+          {{ if .Site.Params.header.brandText }}
             {{ .Site.Title }}
           {{ end }}
 
