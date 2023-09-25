@@ -1,1 +1,6 @@
 description = 'Example site for Shock Hugo theme.'
+
+# Sidebar
+[sidebar]
+  section = true
+  single = true

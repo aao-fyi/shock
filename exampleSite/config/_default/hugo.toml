@@ -24,3 +24,33 @@ enableRobotsTXT = true
   [module.hugoVersion]
     extended = true
     min = '0.110.0'
+
+[menu]
+  # Connect
+  [[menu.connect]]
+    identifier = 'codeberg'
+    name = 'Codeberg'
+    weight = '15'
+    color = '#2185d0'
+    url = 'https://codeberg.org/aao-fyi/shock'
+  [[menu.connect]]
+    identifier = 'github'
+    name = 'GitHub'
+    weight = '20'
+    color = '#4078c0'
+    url = 'https://github.com/aao-fyi/shock'
+  [[menu.connect]]
+    identifier = 'gitlab'
+    name = 'GitLab'
+    weight = '10'
+    color = '#fc6d26'
+    url = 'https://gitlab.com/aao-fyi/shock'
+  # Footer
+  [[menu.footer]]
+    identifier = 'privacy'
+    name = 'Privacy'
+    url = 'https://aao.fyi/privacy'
+  [[menu.footer]]
+    identifier = 'sitemap'
+    name = 'Sitemap'
+    url = '/sitemap.xml'
