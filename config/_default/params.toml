@@ -13,6 +13,11 @@
   brandText = true
   fixedTop = true
 
+# Sidebar
+[sidebar]
+  section = false
+  single = false
+
 # Footer
 [footer]
   state = true

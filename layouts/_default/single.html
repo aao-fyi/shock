@@ -1,7 +1,19 @@
 {{/* Main */}}
 {{ define "main" }}
-  <div class="container">
-    <h1>{{ .Page.Title }}</h1>
-    {{ .Content | safeHTML }}
+{{ $sidebarState := .Site.Params.sidebar.single }}
+
+<div class="row g-0">
+
+  {{ if $sidebarState }}
+    {{ partial "sidebar" . }}
+  {{ end }}
+
+  <div class="p-2 col col-12 {{ if $sidebarState }}col-lg-9 col-xxl-10{{ end }}">
+    <div class="container">
+      <h1>{{ .Page.Title }}</h1>
+      {{ .Content | safeHTML }}
+    </div>
   </div>
+
+</div>
 {{ end }}

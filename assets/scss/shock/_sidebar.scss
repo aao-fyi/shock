@@ -1,0 +1,54 @@
+@media screen and (min-width: 992px) {
+  .sticky-top {
+    z-index: 8800;
+  }
+}
+
+.sidebar-content {
+  top: 4rem;
+}
+#TableOfContents {
+  overflow-y: auto;
+  padding: 1.25rem;
+	align-items: center;
+	justify-content: space-between;
+}
+#TableOfContents ul {
+	flex-direction: column;
+	margin-bottom: 0;
+	padding-left: 0;
+	padding-bottom: 1rem;
+	list-style: none;
+}
+#TableOfContents li a {
+	margin-left: 0;
+	margin-bottom: 1rem;
+  padding: 0;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+#TableOfContents ul li ul {
+	font-size: 0.875rem;
+}
+#TableOfContents ul li ul li a {
+  padding: 0.5rem 1rem;
+	margin-bottom: 0;
+}
+#TableOfContents ul li ul li a:before {
+  background-color: var(--bs-link-color);
+  content: " ";
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -0.5rem;
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  border-radius: 1rem;
+}
+#TableOfContents ul li ul li:hover a:before,
+#TableOfContents ul li ul li.active a:before {
+  background: var(--bs-link-hover-color);
+}
