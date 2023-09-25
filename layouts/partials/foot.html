@@ -1,13 +1,19 @@
 {{/* Bootstrap */}}
-{{ if (ne false .Site.Params.bootstrap.javascript) }}
-  {{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
-  {{ $bootstrapSRI := $bootstrapJS | resources.Fingerprint "sha384" }}
-  <script defer src="{{ $bootstrapSRI.RelPermalink }}" integrity="{{ $bootstrapSRI.Data.Integrity }}"></script>
+{{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
+
+{{/* Shock */}}
+{{ $shockJS := resources.Get "js/shock.js" }}
+
+{{/* Site */}}
+{{ $siteJS := resources.Get "js/site.js" }}
+
+{{/* Source */}}
+{{ $sourceJS := slice $shockJS $siteJS }}
+{{ if .Site.Params.bootstrap.javascript }}
+  {{ $sourceJS = slice $bootstrapJS $shockJS $siteJS }}
 {{ end }}
 
 {{/* Main */}}
-{{ $shockJS := resources.Get "js/shock.js" }}
-{{ $siteJS := resources.Get "js/site.js" }}
-{{ $mainJS := slice $shockJS $siteJS | resources.Concat "js/main.js" | minify }}
+{{ $mainJS := $sourceJS | resources.Concat "js/main.js" | minify }}
 {{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
 <script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>
