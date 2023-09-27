@@ -17,6 +17,7 @@
 [sidebar]
   section = false
   single = false
+  tableofcontentsID = 'sidebar-tableofcontents'
 
 # Footer
 [footer]
