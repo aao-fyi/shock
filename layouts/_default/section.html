@@ -5,6 +5,7 @@
 	<div class="container my-4">
 		{{ .Content | safeHTML }}
 		<div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4">
+
       {{ range .Pages }}
         <div class="col">
           <div class="card h-100">
@@ -13,11 +14,30 @@
               <p class="card-text">{{ .Page.Description }}</p>
             </div>
             <div class="card-footer text-center">
-              <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary">View {{ partial "icon" "chevrons-right" }}</a>
+              <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
             </div>
           </div>
         </div>
       {{ end }}
+
+      {{ with .Page.Params.cards }}
+      {{ range . }}
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ with .icon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .title }}</h5>
+              <p class="card-text">{{ .description }}</p>
+            </div>
+            <div class="card-footer text-center">
+              {{ with .links }}{{ range . }}
+                {{ partial "button" . }}
+              {{ end }}{{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+      {{ end }}
+
 		</div>
 	</div>
 {{ end }}

@@ -1,0 +1,21 @@
+{{/* Accepts list as input */}}
+{{ $buttonURL := .url }}
+{{ $buttonTitle := .title }}
+{{ $buttonIcon := .icon }}
+{{ $buttonBrand := .brand }}
+{{ $buttonType := (default "secondary" .type) }}
+
+<a
+  {{ with $buttonURL }}href="{{ . }}"{{ end }}
+  {{ with $buttonTitle }}title="{{ . }}"{{ end }}
+  {{ if strings.HasPrefix $buttonURL "http" }}target="_blank" rel="noopener noreferrer"{{ end }}
+  class="btn btn-{{ $buttonType }} m-2"
+>
+{{ if $buttonBrand }}
+  {{ partial "icon-brand" $buttonBrand }}
+{{ else if $buttonIcon }}
+  {{ partial "icon" $buttonIcon }}
+{{ else if $buttonTitle }}
+  {{ $buttonTitle | safeHTML }} {{ partial "icon" "chevrons-right" }}
+{{ end }}
+</a>
