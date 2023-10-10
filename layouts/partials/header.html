@@ -15,12 +15,13 @@
 
           {{/* Brand Logo */}}
           {{ if .Site.Params.header.brandLogo }}
-            {{ $brandPNG := resources.Get (default .Site.Params.logo.mainPNG .Site.Params.logo.brandPNG) }}
-            {{ $brand256 := "" }}
-            {{ with $brandPNG }}
-              {{ $brand256 = $brandPNG.Resize "256x" | resources.Copy (printf "/img/logo/%s-brand-256.png" (urlize .Site.Title)) }}
+            {{ $mainPNG := resources.Get .Site.Params.logo.mainPNG }}
+            {{ $brandPNG := resources.Get .Site.Params.logo.brandPNG }}
+            {{ $brandLogo := default $mainPNG $brandPNG }}
+            {{ if $brandLogo }}
+              {{ $brandLogo = $brandLogo.Resize "256x" | resources.Copy (printf "/img/logo/%s-brand-256.png" (urlize .Site.Title)) }}
+              <img src="{{ $brandLogo.RelPermalink }}" alt="{{ .Site.Title }}" height="50" />
             {{ end }}
-            <img src="{{ $brand256.RelPermalink }}" alt="{{ .Site.Title }}" height="50" />
           {{ end }}
 
           {{/* Brand Text */}}
