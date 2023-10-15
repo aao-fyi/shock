@@ -1,6 +1,6 @@
 {{/* Main */}}
 {{ define "main" }}
-{{ $sidebarState := .Site.Params.sidebar.single }}
+{{ $sidebarState := (default .Site.Params.sidebar.single .Page.Params.sidebar) }}
 
 <div class="row g-0">
 
