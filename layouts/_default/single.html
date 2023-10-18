@@ -1,15 +1,23 @@
 {{/* Main */}}
 {{ define "main" }}
 {{ $sidebarState := (default .Site.Params.sidebar.single .Page.Params.sidebar) }}
+{{ $breadcrumbState := (default .Site.Params.breadcrumb.single .Page.Params.breadcrumb) }}
 
 <div class="row g-0">
 
+  {{/* Sidebar */}}
   {{ if $sidebarState }}
     {{ partial "sidebar" . }}
   {{ end }}
 
   <div class="p-2 col col-12 {{ if $sidebarState }}col-lg-9 col-xxl-10{{ end }}">
-    <div class="container my-4 py-2" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
+    {{/* Breadcrumb */}}
+    {{ if $breadcrumbState }}
+      {{ partial "breadcrumb" . }}
+    {{ end }}
+
+    {{/* Content */}}
+    <div class="container my-2 py-2" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
       <h1>{{ .Page.Title }}</h1>
       {{ .Content | safeHTML }}
     </div>

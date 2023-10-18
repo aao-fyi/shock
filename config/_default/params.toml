@@ -19,6 +19,12 @@
   single = false
   tableofcontentsID = 'sidebar-tableofcontents'
 
+# Breadcrumbs
+[breadcrumb]
+  home = false
+  section = false
+  single = false
+
 # Footer
 [footer]
   state = true
