@@ -2,17 +2,17 @@
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
   {{ range .Ancestors.Reverse }}
-    {{ $dropBreadcrumb := false }}
-
-    {{ if and ($.Site.Params.breadcrumb.home) (eq . .Site.Home) }}
-      {{ $dropBreadcrumb = true }}
-    {{ else if (eq $.Parent .Site.Home) }}
-      {{ $dropBreadcrumb = true }}
+    {{ if and (.Site.Params.breadcrumb.home) (eq . .Site.Home) }}
+      <li class="breadcrumb-item">
+        <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+          {{ if .Site.Params.breadcrumb.homeIcon }}
+            {{ partial "icon" .Site.Params.breadcrumb.homeIcon }}
+          {{ else }}
+            {{ .Title }}
+          {{ end }}
+        </a>
+      </li>
     {{ else if ne . .Site.Home }}
-      {{ $dropBreadcrumb = true }}
-    {{ end }}
-
-    {{ if $dropBreadcrumb }}
       <li class="breadcrumb-item">
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </li>

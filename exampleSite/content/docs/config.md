@@ -41,6 +41,15 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `section` | bool | `false` | Sidebar state on section pages. |
 | `single` | bool | `false` | Sidebar state on single pages. |
 
+### Breadcrumb
+
+| `[breadcrumb]` | Type | Default | Description |
+| ----------- | ---- | ------- | ----------- |
+| `home` | bool | `false` | Should breadcrumb include home page. |
+| `homeIcon` | string | `'folder-root'` | Icon to use for home page, set to `''` to use title instead. |
+| `section` | bool | `false` | Breadcrumb state on section pages. |
+| `single` | bool | `false` | Breadcrumb state on single pages. |
+
 ### Footer
 
 | `[footer]` | Type | Default | Description |

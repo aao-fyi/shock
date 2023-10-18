@@ -22,6 +22,7 @@
 # Breadcrumbs
 [breadcrumb]
   home = false
+  homeIcon = 'folder-root'
   section = false
   single = false
 

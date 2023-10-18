@@ -1,5 +1,12 @@
 description = 'Example site for Shock Hugo theme.'
 
+# Breadcrumb
+[breadcrumb]
+  home = true
+  homeIcon = 'folder-root'
+  section = false
+  single = true
+
 # Sidebar
 [sidebar]
   section = true

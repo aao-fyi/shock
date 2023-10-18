@@ -9,6 +9,9 @@ draft: false
 ## Banner
 Banner is 'hero' type partial, applied to sections by default. This partial will use the page title as a level 1 header (`h1`), and renders the page description.
 
+## Breadcrumb
+Renders a breadcrumb trail of the page ancestors, as defined by Hugo. Utilizes bootstrap breadcrumb classes.
+
 ## Connect
 Connect renders the "connect" menu (`.Site.Menus.Connect`) in an unordered list with the "nav" class. Will use link, title, icon, and color information as configured.
 
