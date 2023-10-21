@@ -41,8 +41,7 @@
 
       <div id="navbar-menu-items" class="navbar-collapse justify-content-end collapse">
         <ul class="navbar-nav fs-5">
-          {{/* $currentPage := . */}}
-          {{ range .Site.Menus.main }}
+          {{ range sort .Site.Menus.main "Weight" }}
             <li class="nav-item">
               <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
                 {{ .Name }}
