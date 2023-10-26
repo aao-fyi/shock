@@ -16,6 +16,13 @@
             <div class="card-footer text-center">
               <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
             </div>
+
+            {{ $subPages := len .Pages }}
+            {{ if ge $subPages 1 }}
+              <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
+              {{ $subPages }}
+              </span>
+            {{ end }}
           </div>
         </div>
       {{ end }}
