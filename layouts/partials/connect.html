@@ -4,7 +4,7 @@
     {{ range sort .Site.Menus.connect "Weight" }}
       <li class="nav-item">
         <a class="nav-link" href="{{ .URL }}" title="{{ .Name }}">
-          {{ $icon := (lower (default .Name .Params.Icon)) }}
+          {{ $icon := (lower (default (default (urlize .Name) .Identifier) .Params.Icon)) }}
           {{ if .Params.Icon }}
             {{ partial "icon" $icon }}
           {{ else }}

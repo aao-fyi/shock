@@ -1,5 +1,9 @@
 description = 'Example site for Shock Hugo theme.'
 
+# PostCSS
+[postCSS]
+  state = true
+
 # Breadcrumb
 [breadcrumb]
   home = true
@@ -9,5 +13,5 @@ description = 'Example site for Shock Hugo theme.'
 
 # Sidebar
 [sidebar]
-  section = true
+  section = false
   single = true

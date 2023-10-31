@@ -18,6 +18,11 @@ enableRobotsTXT = true
 [minify]
   minifyOutput = true
 
+# Build
+[build]
+  # PostCSS
+  writeStats = true
+
 # Module
 [module]
   # Version
