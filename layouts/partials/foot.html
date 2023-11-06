@@ -1,5 +1,6 @@
 {{/* Bootstrap */}}
 {{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
+{{ $bootstrapColorMode := resources.Get "js/bootstrap-colormode.js" }}
 
 {{/* Shock */}}
 {{ $shockJS := resources.Get "js/shock.js" }}
@@ -8,12 +9,17 @@
 {{ $siteJS := resources.Get "js/site.js" }}
 
 {{/* Source */}}
-{{ $sourceJS := slice $shockJS $siteJS }}
+{{ $sourceJS := slice }}
 {{ if .Site.Params.bootstrap.javascript }}
-  {{ $sourceJS = slice $bootstrapJS $shockJS $siteJS }}
+  {{ $sourceJS = slice $bootstrapJS $bootstrapColorMode $shockJS $siteJS }}
+{{ else if or ($shockJS.Content) ($siteJS.Content) }}
+  {{ $sourceJS = slice $shockJS $siteJS }}
 {{ end }}
 
 {{/* Main */}}
-{{ $mainJS := $sourceJS | resources.Concat "js/main.js" | minify }}
-{{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
-<script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>
+{{ if $sourceJS }}
+  {{ $mainJS := $sourceJS | resources.Concat "js/main.js" | minify }}
+  {{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>
+{{ end }}
+
