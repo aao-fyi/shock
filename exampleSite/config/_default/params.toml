@@ -8,7 +8,7 @@ description = 'Example site for Shock Hugo theme.'
 [breadcrumb]
   home = true
   homeIcon = 'folder-root'
-  section = false
+  section = true
   single = true
 
 # Sidebar
