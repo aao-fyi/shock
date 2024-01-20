@@ -1,7 +1,7 @@
 github.com/lucide-icons/lucide v0.265.0 h1:s0dIST57klkEZ7ZJuOIXChoyvLKjDDR307S0slEmxUU=
 github.com/lucide-icons/lucide v0.265.0/go.mod h1:0HX/9u6n25zuV2HgBIuqfMfDktGNXmsvYqL1cOK4aWc=
-github.com/simple-icons/simple-icons v0.0.0-20231022005455-802fd7074325 h1:6je3AXBSCxb00vWxFuy8wLmpDXrH5q8+lCiLuu0UuGM=
-github.com/simple-icons/simple-icons v0.0.0-20231022005455-802fd7074325/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
+github.com/simple-icons/simple-icons v0.0.0-20240114020240-da74ce09de20 h1:sQ6X0TZ4/MYQF1yuJW5q6t7LbJeXH752SZz+m0QQ3QE=
+github.com/simple-icons/simple-icons v0.0.0-20240114020240-da74ce09de20/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
 github.com/twbs/bootstrap v5.3.2+incompatible h1:tuiO5acc6xnZUR77Sbi5aKWXxjYxbmsSbJwYrhAKoQQ=
 github.com/twbs/bootstrap v5.3.2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
 github.com/twbs/rfs v10.0.0+incompatible h1:lMyvQ7s06iPYrTFQrv7huR/xr9PvuSov7lA5mXtRx0A=
