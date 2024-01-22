@@ -14,10 +14,11 @@
 		<div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4">
 
       {{ range .Pages }}
+        {{ $pageIcon := (default .Parent.Params.Icon .Page.Params.Icon) }}
         <div class="col">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">{{ with .Page.Params.Icon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .Page.Title }}</h5>
+              <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .Page.Title }}</h5>
               <p class="card-text">{{ .Page.Description }}</p>
             </div>
             <div class="card-footer text-center">
@@ -36,10 +37,11 @@
 
       {{ with .Page.Params.cards }}
       {{ range . }}
+      {{ $pageIcon := .icon }}
         <div class="col">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">{{ with .icon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .title }}</h5>
+              <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .title }}</h5>
               <p class="card-text">{{ .description }}</p>
             </div>
             <div class="card-footer text-center">
