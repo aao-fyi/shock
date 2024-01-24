@@ -94,7 +94,7 @@ hugo mod get -u && hugo mod clean
 npm update
 ```
 
-###
+### Start
 Navigate to `your-project.example.com` and start the [Hugo server](https://gohugo.io/commands/hugo_server/).
 
 ```bash
