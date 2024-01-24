@@ -18,7 +18,17 @@
 
     {{/* Content */}}
     <div class="container my-2 py-2" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
-      <h1>{{ .Page.Title }}</h1>
+      {{/* Page Heading */}}
+      <div class="row justify-content-between">
+        <div class="col-auto">
+          <h1>{{ .Page.Title }}</h1>
+        </div>
+        <div class="col-auto">
+          <span class="badge text-bg-secondary">{{ partial "lastmod" . }}</span>
+        </div>
+      </div>
+
+      {{/* Page Content */}}
       {{ .Content | safeHTML }}
     </div>
   </div>
