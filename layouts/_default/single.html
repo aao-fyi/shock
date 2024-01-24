@@ -17,14 +17,14 @@
     {{ end }}
 
     {{/* Content */}}
-    <div class="container my-2 py-2" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
+    <div class="container" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
       {{/* Page Heading */}}
-      <div class="row justify-content-between">
+      <div class="row justify-content-between my-3">
         <div class="col-auto">
           <h1>{{ .Page.Title }}</h1>
         </div>
         <div class="col-auto">
-          <span class="badge text-bg-secondary">{{ partial "lastmod" . }}</span>
+          <span class="badge text-bg-secondary">Last Edit: {{ partial "lastmod" . }}</span>
         </div>
       </div>
 
