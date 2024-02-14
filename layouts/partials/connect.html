@@ -2,9 +2,19 @@
   <ul class="nav">
 
     {{ range sort .Site.Menus.connect "Weight" }}
+      {{ $connectLink := .URL }}
+      {{ $connectTitle := .Name }}
+      {{ $connectTarget := "_blank"}}
+      {{ $connectRel := "noopener noreferrer" }}
+
+      {{/* Supported Site Check */}}
+      {{ if (eq (lower $connectTitle) ("mastodon")) }}
+        {{ $connectRel = (printf "%s %s" $connectRel "me")}}
+      {{ end }}
+
       <li class="nav-item">
-        <a class="nav-link" href="{{ .URL }}" title="{{ .Name }}">
-          {{ $icon := (lower (default (default (urlize .Name) .Identifier) .Params.Icon)) }}
+        <a class="nav-link" {{ with $connectLink }}href="{{ . }}"{{ end }} {{ with $connectTitle }}title="{{ . }}"{{ end }} {{ with $connectTarget }}target="{{ . }}"{{ end }} {{ with $connectRel }}rel="{{ . }}"{{ end }}>
+          {{ $icon := (lower (default (default (urlize $connectTitle) .Identifier) .Params.Icon)) }}
           {{ if .Params.Icon }}
             {{ partial "icon" $icon }}
           {{ else }}
