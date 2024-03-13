@@ -12,14 +12,16 @@
       <nav id="TableOfContents">
         <ul>
         {{ range .Pages }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-          {{ if .IsSection }}
-            <ul>
-            {{ range .Pages }}
-              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ if .IsSection }}
+              <ul>
+              {{ range .Pages }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+              </ul>
             {{ end }}
-            </ul>
-          {{ end }}
+          </li>
         {{ end}}
         </ul>
       </nav>
