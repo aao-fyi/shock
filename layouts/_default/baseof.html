@@ -67,7 +67,7 @@
           {{/* /Breadcrumb */}}
 
           {{/* Content */}}
-          <div class="container" {{ if $sidebarStatePage }}data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}"{{ end }} data-bs-smooth-scroll="true">
+          <div class="container my-4" {{ if $sidebarStatePage }}data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}"{{ end }} data-bs-smooth-scroll="true">
             {{/* Heading */}}
             {{ if $headingStatePage }}
               {{ partial "heading" . }}
