@@ -27,3 +27,7 @@ description = 'Example site for Shock Hugo theme.'
   home = false
   section = false
   single = true
+
+# Footer
+[footer]
+  stick = true

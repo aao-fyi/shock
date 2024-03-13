@@ -42,6 +42,7 @@
 # Footer
 [footer]
   state = true
+  stick = true
 
 # Copyright
 [copyright]

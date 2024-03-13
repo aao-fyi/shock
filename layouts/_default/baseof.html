@@ -3,20 +3,12 @@
   {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}
   data-bs-theme="auto"
 >
+
 	<head>
     {{- partial "head.html" . -}}
     {{- block "head" . }}{{- end }}
 	</head>
-  <body class="d-flex flex-column min-vh-100">
-  {{/* Header */}}
-    {{ if .Site.Params.header.state }}
-      {{- partial "header.html" . -}}
-    {{ end }}
 
-    {{- block "header" . }}{{- end }}
-  {{/* /Header */}}
-
-  {{/* Main */}}
     {{/* Variables */}}
       {{ $bannerState := false }}
       {{ $breadcrumbState := false }}
@@ -44,7 +36,20 @@
       {{ $breadcrumbStatePage := (default $breadcrumbState .Page.Params.breadcrumb) }}
       {{ $headingStatePage := (default $headingState .Page.Params.heading) }}
       {{ $sidebarStatePage := (default $sidebarState .Page.Params.sidebar) }}
+
+  {{ $footerStick := .Site.Params.footer.stick }}
     {{/* /Variables */}}
+
+<body {{ if and (not $sidebarStatePage) ($footerStick) }}class="d-flex flex-column min-vh-100"{{ end }}>
+  {{/* Header */}}
+    {{ if .Site.Params.header.state }}
+      {{- partial "header.html" . -}}
+    {{ end }}
+
+    {{- block "header" . }}{{- end }}
+  {{/* /Header */}}
+
+  {{/* Main */}}
     <main>
       <div class="row g-0">
         {{/* Banner */}}
