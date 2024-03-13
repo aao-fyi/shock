@@ -8,7 +8,7 @@
       </button>
     </div>
 
-    {{ if .IsSection}}
+    {{ if or (.IsHome) (.IsSection) }}
       <nav id="TableOfContents">
         <ul>
         {{ range .Pages }}
