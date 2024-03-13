@@ -2,8 +2,21 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
 
-      {{/* Sidebar Toggler */}}
-      {{ if .IsPage }}
+      {{/* SidebarToggler */}}
+      {{ $sidebarState := false }}
+
+      {{ if .Page.Params.sidebar }}
+        {{ $sidebarState = .Page.Params.sidebar }}
+      {{ else if and (.Page.IsHome) (.Site.Params.sidebar.home) }}
+        {{ $sidebarState = .Site.Params.sidebar.home }}
+      {{ else if and (.Page.IsSection) (.Site.Params.sidebar.section) }}
+        {{ $sidebarState = .Site.Params.sidebar.section }}
+      {{ else if and (.Page.IsPage) (.Site.Params.sidebar.single) }}
+        {{ $sidebarState = .Site.Params.sidebar.single }}
+      {{ end }}
+      {{/* /SidebarToggler */}}
+
+      {{ if $sidebarState }}
       <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-controls="sidebar-tableofcontents">
         {{ partial "icon" "panel-left-open" }}
       </button>

@@ -1,9 +1,9 @@
 {{/* Sidebar */}}
-<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="col col-lg-3 col-xxl-2 offcanvas-lg offcanvas-start bg-body-tertiary">
-  <div class="sticky-lg-top sidebar-content">
+<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-lg offcanvas-start bg-body-tertiary">
+  <div class="sticky-lg-top sidebar-content overflow-x-hidden overflow-y-auto">
     <div class="offcanvas-header">
       <h5>Table of Contents</h5>
-      <button class="navbar-toggler" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-label="Close">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-label="Close">
         {{ partial "icon" "panel-left-close" }}
       </button>
     </div>
