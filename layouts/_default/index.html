@@ -1,8 +1,4 @@
 {{/* Main */}}
 {{ define "main" }}
-  {{ partial "banner" . }}
-
-  <div class="container">
-    {{ .Content | safeHTML }}
-  </div>
+  {{ .Content | safeHTML }}
 {{ end }}

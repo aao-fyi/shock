@@ -4,14 +4,26 @@ description = 'Example site for Shock Hugo theme.'
 [postCSS]
   state = true
 
-# Breadcrumb
-[breadcrumb]
+# Banner
+[banner]
   home = true
-  homeIcon = 'folder-root'
   section = true
-  single = true
+  single = false
 
 # Sidebar
 [sidebar]
+  home = false
+  section = false
+  single = true
+
+# Breadcrumb
+[breadcrumb]
+  home = true
+  section = false
+  single = true
+
+# Heading
+[heading]
+  home = false
   section = false
   single = true

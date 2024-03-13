@@ -13,8 +13,15 @@
   brandText = true
   fixedTop = true
 
+# Banner
+[banner]
+  home = true
+  section = true
+  single = false
+
 # Sidebar
 [sidebar]
+  home = false
   section = false
   single = false
   tableofcontentsID = 'sidebar-tableofcontents'
@@ -25,6 +32,12 @@
   homeIcon = 'folder-root'
   section = false
   single = false
+
+# Heading
+[heading]
+  home = false
+  section = false
+  single = true
 
 # Footer
 [footer]

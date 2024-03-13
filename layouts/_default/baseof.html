@@ -8,17 +8,89 @@
     {{- block "head" . }}{{- end }}
 	</head>
   <body class="d-flex flex-column min-vh-100">
+  {{/* Header */}}
     {{ if .Site.Params.header.state }}
       {{- partial "header.html" . -}}
     {{ end }}
+
     {{- block "header" . }}{{- end }}
+  {{/* /Header */}}
+
+  {{/* Main */}}
+    {{/* Variables */}}
+      {{ $bannerState := false }}
+      {{ $breadcrumbState := false }}
+      {{ $headingState := false }}
+      {{ $sidebarState := false }}
+
+      {{ if .Page.IsHome }}
+        {{ $bannerState = (default $bannerState .Site.Params.banner.home) }}
+        {{ $headingState = (default $headingState .Site.Params.heading.home) }}
+        {{ $sidebarState = (default $sidebarState .Site.Params.sidebar.home) }}
+      {{ else if .Page.IsSection }}
+        {{ $bannerState = (default $bannerState .Site.Params.banner.section) }}
+        {{ $breadcrumbState = (default $breadcrumbState .Site.Params.breadcrumb.section) }}
+        {{ $headingState = (default $headingState .Site.Params.heading.section) }}
+        {{ $sidebarState = (default $sidebarState .Site.Params.sidebar.section) }}
+      {{ else if .Page.IsPage }}
+        {{ $bannerState = (default $bannerState .Site.Params.banner.single) }}
+        {{ $breadcrumbState = (default $breadcrumbState .Site.Params.breadcrumb.single) }}
+        {{ $headingState = (default $headingState .Site.Params.heading.single) }}
+        {{ $sidebarState = (default $sidebarState .Site.Params.sidebar.single) }}
+      {{ end }}
+
+      {{/* Allow page override */}}
+      {{ $bannerStatePage := (default $bannerState .Page.Params.banner) }}
+      {{ $breadcrumbStatePage := (default $breadcrumbState .Page.Params.breadcrumb) }}
+      {{ $headingStatePage := (default $headingState .Page.Params.heading) }}
+      {{ $sidebarStatePage := (default $sidebarState .Page.Params.sidebar) }}
+    {{/* /Variables */}}
     <main>
-      {{- block "main" . }}{{- end }}
+      <div class="row g-0">
+        {{/* Banner */}}
+        {{ if $bannerStatePage }}
+          {{ partial "banner" . }}
+        {{ end }}
+        {{/* /Banner */}}
+
+        {{/* Sidebar */}}
+        {{ if $sidebarStatePage }}
+          {{ partial "sidebar" . }}
+        {{ end }}
+        {{/* /Sidebar */}}
+
+        <div class="py-2 col col-12 {{ if $sidebarStatePage }}col-lg-9 col-xxl-10{{ end }}">
+          {{/* Breadcrumb */}}
+          {{ if $breadcrumbStatePage }}
+            {{ partial "breadcrumb" . }}
+          {{ end }}
+          {{/* /Breadcrumb */}}
+
+          {{/* Content */}}
+          <div class="container" {{ if $sidebarStatePage }}data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}"{{ end }} data-bs-smooth-scroll="true">
+            {{/* Heading */}}
+            {{ if $headingStatePage }}
+              {{ partial "heading" . }}
+            {{ end }}
+            {{/* /Heading */}}
+      
+            {{/* Main */}}
+            {{- block "main" . }}{{- end }}
+          </div>
+        </div>
+      </div>
     </main>
+  {{/* /Main */}}
+  
+  {{/* Footer */}}
     {{ if .Site.Params.footer.state }}
       {{- partial "footer.html" . -}}
     {{ end }}
     {{- partial "foot.html" . -}}
+  {{/* /Footer */}}
+  
+  {{/* Foot */}}
     {{- block "foot" . }}{{- end }}
+  {{/* /Foot */}}
   </body>
 </html>

@@ -1,37 +1,5 @@
 {{/* Main */}}
 {{ define "main" }}
-{{ $sidebarState := (default .Site.Params.sidebar.single .Page.Params.sidebar) }}
-{{ $breadcrumbState := (default .Site.Params.breadcrumb.single .Page.Params.breadcrumb) }}
-
-<div class="row g-0">
-
-  {{/* Sidebar */}}
-  {{ if $sidebarState }}
-    {{ partial "sidebar" . }}
-  {{ end }}
-
-  <div class="p-2 col col-12 {{ if $sidebarState }}col-lg-9 col-xxl-10{{ end }}">
-    {{/* Breadcrumb */}}
-    {{ if $breadcrumbState }}
-      {{ partial "breadcrumb" . }}
-    {{ end }}
-
-    {{/* Content */}}
-    <div class="container" data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" data-bs-smooth-scroll="true">
-      {{/* Page Heading */}}
-      <div class="row justify-content-between my-3">
-        <div class="col-auto">
-          <h1>{{ .Page.Title }}</h1>
-        </div>
-        <div class="col-auto">
-          <span class="badge text-bg-secondary">Last Edit: {{ partial "lastmod" . }}</span>
-        </div>
-      </div>
-
-      {{/* Page Content */}}
-      {{ .Content | safeHTML }}
-    </div>
-  </div>
-
-</div>
+  {{/* Content */}}
+  {{ .Content | safeHTML }}
 {{ end }}

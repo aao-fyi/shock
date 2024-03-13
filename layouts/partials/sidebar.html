@@ -7,6 +7,24 @@
         {{ partial "icon" "panel-left-close" }}
       </button>
     </div>
-    {{ .Page.TableOfContents }}
+
+    {{ if .IsSection}}
+      <nav id="TableOfContents">
+        <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ if .IsSection }}
+            <ul>
+            {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+            </ul>
+          {{ end }}
+        {{ end}}
+        </ul>
+      </nav>
+    {{ else }}
+      {{ .Page.TableOfContents }}
+    {{ end }}
   </div>
 </div>
