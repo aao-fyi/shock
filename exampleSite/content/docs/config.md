@@ -34,27 +34,46 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `brandText` | bool | `true` | Toggle header brand text. |
 | `fixedTop` | bool | `true` | Toggle header stick-state. |
 
+### Banner
+
+| `[banner]` | Type | Default | Description |
+| ---------- | ---- | ------- | ----------- |
+| `home` | bool | `true` | Toggle banner on home page. |
+| `section` | bool | `true` | Toggle banner on section pages. |
+| `single` | bool | `false` | Toggle banner on single pages. |
+
 ### Sidebar
 
 | `[sidebar]` | Type | Default | Description |
 | ----------- | ---- | ------- | ----------- |
-| `section` | bool | `false` | Sidebar state on section pages. |
-| `single` | bool | `false` | Sidebar state on single pages. |
+| `home` | bool | `false` | Toggle sidebar on home page.
+| `section` | bool | `false` | Toggle sidebar on section pages. |
+| `single` | bool | `false` | Toggle sidebar on single pages. |
+| `tableofcontentsID` | string | `sidebar-tableofcontents` | ID to assign table of contents wrapper. |
 
 ### Breadcrumb
 
 | `[breadcrumb]` | Type | Default | Description |
+| -------------- | ---- | ------- | ----------- |
+| `home` | bool | `false` | Should breadcrumb include home page link. |
+| `homeIcon` | string | `'folder-root'` | Icon to use for home page link, set to `''` to use title instead. |
+| `section` | bool | `false` | Toggle breadcrumb on section pages. |
+| `single` | bool | `false` | Toggle breadcrumb on single pages. |
+
+### Heading
+
+| `[heading]` | Type | Default | Description |
 | ----------- | ---- | ------- | ----------- |
-| `home` | bool | `false` | Should breadcrumb include home page. |
-| `homeIcon` | string | `'folder-root'` | Icon to use for home page, set to `''` to use title instead. |
-| `section` | bool | `false` | Breadcrumb state on section pages. |
-| `single` | bool | `false` | Breadcrumb state on single pages. |
+| `home` | bool | `false` | Toggle heading on home page. |
+| `section` | bool | `false` | Toggle heading on section pages. |
+| `single` | bool | `true` | Toggle heading on single pages. |
 
 ### Footer
 
 | `[footer]` | Type | Default | Description |
 | ---------- | ---- | ------- | ----------- |
 | `state` | bool | `true` | Toggle footer state. |
+| `stick` | bool | `true` | If footer should stick to the bottom of the page when there is not enough content to fill the page. |
 
 ### Copyright
 

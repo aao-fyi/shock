@@ -27,6 +27,9 @@ HTML `<head>` configuration for all pages, includes SCSS loading. Loaded CSS sty
 ## Header
 Main header and navigation bar.
 
+## Heading
+Render document heading include `h1` with page title and togglable last modified date.
+
 ## Icon
 Load specified icon from Lucide icon pack.
 
@@ -53,6 +56,9 @@ The `lastmod` partial has a matching shortcode.
 
 + `{{%/* lastmod */%}}`
 + {{% lastmod %}}
+
+## Sidebar
+Render sidebar on page. For home and section pages this will include links and sub-links to section content. For single pages this will include a table of contents of the page.
 
 ## Title
 Page title, with appended site name on non-home pages.
