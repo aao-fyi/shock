@@ -2,6 +2,10 @@
 .hugo_build.lock
 hugo_stats.json
 jsconfig.json
+_vendor/
+resources/
+public/
+!public/_redirects
 
 # Node
 node_modules/

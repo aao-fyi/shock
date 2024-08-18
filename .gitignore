@@ -3,8 +3,9 @@
 hugo_stats.json
 jsconfig.json
 _vendor/
-public/
 resources/
+public/
+!public/_redirects
 
 # Node
 node_modules/
