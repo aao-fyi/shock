@@ -1,0 +1,12 @@
+{{ $source := . }}
+{{ $image := $source.Resize "1920x png q75 lanczos" }}
+
+{{/* Watermark */}}
+{{/* $logo := resources.Get "img/logo/logo.png" */}}
+{{/* with $logo */}}
+    {{/* $watermark := $logo.Resize "x200" */}}
+    {{/* $image = $image.Filter (images.Overlay $watermark (sub $image.Width $watermark.Width) (sub $image.Height $watermark.Height)) */}}
+{{/* end */}}
+
+{{ $image = $image | resources.Copy (printf "%s" $source.RelPermalink) }}
+<img src="{{ $image.RelPermalink }}" class="d-block w-100" alt="{{ humanize .Name }}"></img>
