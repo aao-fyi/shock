@@ -1,7 +1,7 @@
-github.com/lucide-icons/lucide v0.265.0 h1:s0dIST57klkEZ7ZJuOIXChoyvLKjDDR307S0slEmxUU=
-github.com/lucide-icons/lucide v0.265.0/go.mod h1:0HX/9u6n25zuV2HgBIuqfMfDktGNXmsvYqL1cOK4aWc=
-github.com/simple-icons/simple-icons v0.0.0-20240310002649-f4ad1642d916 h1:HQYrZuPad97qkuRW5LEO3+2IOZC88qrMqgqQ2Syys0I=
-github.com/simple-icons/simple-icons v0.0.0-20240310002649-f4ad1642d916/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
+github.com/lucide-icons/lucide v0.0.0-20241001201341-542507f8358c h1:kRcjKMQLtd4aL94+Vz51bXCce4WJxxWBb+t2kbjCdDo=
+github.com/lucide-icons/lucide v0.0.0-20241001201341-542507f8358c/go.mod h1:0HX/9u6n25zuV2HgBIuqfMfDktGNXmsvYqL1cOK4aWc=
+github.com/simple-icons/simple-icons v0.0.0-20240929022857-8be6321b1e5f h1:+Nw9tw0ainM4cwnmpiP9NrvJswwQaYakRZoa2i9rxeY=
+github.com/simple-icons/simple-icons v0.0.0-20240929022857-8be6321b1e5f/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
 github.com/twbs/bootstrap v5.3.3+incompatible h1:goFoqinzdHfkeegpFP7pvhbd0g+A3O2hbU3XCjuNrEQ=
 github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
 github.com/twbs/rfs v10.0.0+incompatible h1:lMyvQ7s06iPYrTFQrv7huR/xr9PvuSov7lA5mXtRx0A=
