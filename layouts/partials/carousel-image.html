@@ -1,5 +1,5 @@
 {{ $source := . }}
-{{ $image := $source.Resize "1920x png q75 lanczos" }}
+{{ $image := $source.Resize "1920x png q60 lanczos" }}
 
 {{/* Watermark */}}
 {{/* $logo := resources.Get "img/logo/logo.png" */}}
