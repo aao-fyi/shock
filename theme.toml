@@ -1,8 +1,8 @@
 name = 'shock'
 license = 'MIT'
-licenselink = 'https://gitlab.com/aao-fyi/shock/-/blob/main/LICENSE'
+licenselink = 'https://codeberg.org/aao-fyi/shock/src/branch/main/LICENSE'
 description = ''
-homepage = 'https://gitlab.com/aao-fyi/shock'
+homepage = 'https://codeberg.org/aao-fyi/shock'
 tags = ['bootstrap', 'shock']
 features = []
 min_version = '0.128.0' # If changed, update hugo.toml

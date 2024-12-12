@@ -1,3 +1,3 @@
-module gitlab.com/aao-fyi/shock/exampleSite
+module codeberg.org/aao-fyi/shock/exampleSite
 
 go 1.20

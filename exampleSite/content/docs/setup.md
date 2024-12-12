@@ -20,7 +20,7 @@ Download the Shock Example Site to use as your project template. This section de
 Download the latest version of Shock via Git `clone`.
 
 ```bash
-git clone --depth 1 https://gitlab.com/aao-fyi/shock.git shock
+git clone --depth 1 https://codeberg.org/aao-fyi/shock.git shock
 ```
 
 Seperate the `exampleSite` directory and delete the `shock` repository.
@@ -34,7 +34,7 @@ rm -r ./shock
 Download and extract the latest Tar bundle of Shock.
 
 ```bash
-wget https://gitlab.com/aao-fyi/shock/-/archive/main/shock-main.tar.gz
+wget https://codeberg.org/aao-fyi/shock/-/archive/main/shock-main.tar.gz
 tar -xvf shock-main.tar.gz
 ```
 
@@ -52,7 +52,7 @@ Modify the following files in the `exampleSite` project to reflect your project'
 Modify the module path in `go.mod` to match your project URL.
 
 ```go
-module gitlab.com/username/example.com
+module codeberg.org/username/example.com
 ```
 
 ### package.json

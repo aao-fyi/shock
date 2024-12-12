@@ -1,4 +1,4 @@
-module gitlab.com/aao-fyi/shock
+module codeberg.org/aao-fyi/shock
 
 go 1.20
 

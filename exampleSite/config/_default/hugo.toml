@@ -5,8 +5,7 @@ title = 'Shock'
 copyright = 'aao.fyi'
 
 # Theme
-# Replace 'gitlab.com' with 'github.com' if error loading
-theme = 'gitlab.com/aao-fyi/shock'
+theme = 'codeberg.org/aao-fyi/shock'
 
 # Features
 disableHugoGeneratorInject = false
@@ -28,14 +27,14 @@ enableRobotsTXT = true
   # Version
   [module.hugoVersion]
     extended = true
-    min = '0.110.0'
+    min = '0.128.0'
 
 [menu]
   # Connect
   [[menu.connect]]
     identifier = 'codeberg'
     name = 'Codeberg'
-    weight = '15'
+    weight = '10'
     color = '#2185d0'
     url = 'https://codeberg.org/aao-fyi/shock'
   [[menu.connect]]
@@ -47,7 +46,7 @@ enableRobotsTXT = true
   [[menu.connect]]
     identifier = 'gitlab'
     name = 'GitLab'
-    weight = '10'
+    weight = '15'
     color = '#fc6d26'
     url = 'https://gitlab.com/aao-fyi/shock'
   # Footer
