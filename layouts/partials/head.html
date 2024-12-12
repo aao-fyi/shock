@@ -52,10 +52,10 @@
   {{ $styleSCSS = slice $styleSCSS $styleHugo | resources.Concat "scss/style.scss" }}
 {{ end }}
 
-{{ $styleCSS := $styleSCSS | resources.ToCSS $styleOptions }}
+{{ $styleCSS := $styleSCSS | css.Sass $styleOptions }}
 {{ $styleLink := "" }}
 {{ if and (.Site.Params.postCSS.state) (hugo.IsProduction) }}
-  {{ $styleLink = $styleCSS | resources.PostCSS | resources.Fingerprint "sha384" | resources.PostProcess }}
+  {{ $styleLink = $styleCSS | css.PostCSS | resources.Fingerprint "sha384" | resources.PostProcess }}
 {{ else }}
   {{ $styleLink = $styleCSS | resources.Fingerprint "sha384" }}
 {{ end }}
