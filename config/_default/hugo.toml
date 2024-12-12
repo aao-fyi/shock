@@ -3,7 +3,7 @@
   # Version
   [module.hugoVersion]
     extended = true
-    min = '0.110.0' # If changed, update theme.toml
+    min = '0.128.0' # If changed, update theme.toml
 
   # Bootstrap
   [[module.imports]]

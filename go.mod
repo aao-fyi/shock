@@ -1,6 +1,6 @@
 module gitlab.com/aao-fyi/shock
 
-go 1.18
+go 1.20
 
 require (
 	github.com/lucide-icons/lucide v0.0.0-20241001201341-542507f8358c // indirect

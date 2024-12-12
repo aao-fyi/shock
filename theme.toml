@@ -5,7 +5,7 @@ description = ''
 homepage = 'https://gitlab.com/aao-fyi/shock'
 tags = ['bootstrap', 'shock']
 features = []
-min_version = '0.110.0' # If changed, update hugo.toml
+min_version = '0.128.0' # If changed, update hugo.toml
 
 [author]
   name = 'aao.fyi'
