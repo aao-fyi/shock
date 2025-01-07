@@ -8,7 +8,7 @@
     <div class="col">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .Page.Title }}</h5>
+          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }} &nbsp; {{ end }}{{ .Page.Title }}</h5>
           <p class="card-text">{{ .Page.Description }}</p>
         </div>
         <div class="card-footer text-center">
