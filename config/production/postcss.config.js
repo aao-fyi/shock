@@ -37,6 +37,10 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
       'user-select-all',
       'w-100',
       'was-validated'
+    ],
+    deep: [
+      'highlight',
+      'highlight-copy', 'highlight-wrapper'
     ]
   },
   dynamicAttributes: [
