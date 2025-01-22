@@ -1,0 +1,64 @@
+{{/* Tree Root */}}
+{{ $treeRoot := false }}
+
+{{ if .Page.IsHome }}
+  {{ $treeRoot = .Site.Sections }}
+{{ else if .Page.IsSection }}
+  {{ $treeRoot = .Pages }}
+{{ else if .Page.IsPage }}
+  {{ $treeRoot = .Pages }}
+{{ end }}
+
+{{/* Card Columns */}}
+{{ $cardMaxCols := 4 }}
+
+{{ if lt (len $treeRoot) $cardMaxCols }}
+  {{ $cardMaxCols = (sub $cardMaxCols 1) }}
+{{ end }}
+
+<div class="container my-4">
+  <div class="row row-cols-1 row-cols-lg-{{ $cardMaxCols }} row-cols-md-3 row-cols-sm-2 g-4">
+
+  {{ range $treeRoot }}
+    {{ $pageIcon := (default .Parent.Params.Icon .Page.Params.Icon) }}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }} &nbsp; {{ end }}{{ .Page.Title }}</h5>
+          <p class="card-text">{{ .Page.Description }}</p>
+        </div>
+        <div class="card-footer text-center">
+          <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
+        </div>
+
+        {{ $subPages := len .Pages }}
+        {{ if ge $subPages 1 }}
+          <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
+          {{ $subPages }}
+          </span>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+  {{ with .Page.Params.cards }}
+  {{ range . }}
+  {{ $pageIcon := .icon }}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .title }}</h5>
+          <p class="card-text">{{ .description }}</p>
+        </div>
+        <div class="card-footer text-center">
+          {{ with .links }}{{ range . }}
+            {{ partial "button" . }}
+          {{ end }}{{ end }}
+        </div>
+      </div>
+    </div>
+  {{ end }}
+  {{ end }}
+
+  </div>
+</div>

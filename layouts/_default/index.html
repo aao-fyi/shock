@@ -1,4 +1,8 @@
 {{/* Main */}}
 {{ define "main" }}
+  {{/* Content */}}
   {{ .Content | safeHTML }}
+
+  {{/* Card Tree */}}
+  {{ partial "card-tree" . }}
 {{ end }}
