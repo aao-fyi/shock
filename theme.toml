@@ -1,7 +1,7 @@
 name = 'shock'
 license = 'MIT'
 licenselink = 'https://codeberg.org/aao-fyi/shock/src/branch/main/LICENSE'
-description = ''
+description = 'Shock Hugo theme for static sites.'
 homepage = 'https://codeberg.org/aao-fyi/shock'
 tags = ['bootstrap', 'shock']
 features = []
