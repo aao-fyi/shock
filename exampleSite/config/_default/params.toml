@@ -1,8 +1,17 @@
-description = 'Example site for Shock Hugo theme.'
+# Bootstrap
+[bootstrap]
+  javascript = true
 
 # PostCSS
 [postCSS]
   state = true
+
+# Header
+[header]
+  state = true
+  brandLogo = false
+  brandText = true
+  fixedTop = true
 
 # Banner
 [banner]
@@ -15,11 +24,13 @@ description = 'Example site for Shock Hugo theme.'
   home = false
   section = false
   single = true
+  tableofcontentsID = 'sidebar-tableofcontents'
 
-# Breadcrumb
+# Breadcrumbs
 [breadcrumb]
   home = true
-  section = false
+  homeIcon = 'server-crash'
+  section = true
   single = true
 
 # Heading
@@ -30,4 +41,21 @@ description = 'Example site for Shock Hugo theme.'
 
 # Footer
 [footer]
+  state = true
   stick = true
+
+# Copyright
+[copyright]
+  name = ''
+  link = ''
+  year = ''
+
+# Logo
+[logo]
+  mainPNG = 'img/logo/logo.png'
+  brandPNG = 'img/logo/brand.png'
+
+# Manifest
+[manifest]
+  state = true
+  background = "#333"
