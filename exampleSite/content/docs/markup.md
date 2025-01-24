@@ -24,17 +24,19 @@ echo "Hello World!"
 ### Attributes
 
 `dist`: Comment prepended to the codeblock, meant to specify distribution or language variances.
-+ `{ dist=debian }`
-  ```bash { dist=debian }
-  apt install hugo
-  ```
-+ `{ dist=fedora }`
-  ```bash { dist=fedora }
-  dnf install hugo
-  ```
+
+````text
+```bash { dist=debian }
+apt install hugo
+```
+````
+
+```bash { dist=debian }
+apt install hugo
+```
 
 ## Links
 Links will render as expected in Hugo, but will open in a new tab (`_blank`) if detected to be an external link.
 
-+ [Local link example, this page]({{< ref "/docs/markup.md" >}}).
++ [Local link example, Shock Docs page]({{< ref "/docs/" >}}).
 + [Remote link example, Hugo website](https://gohugo.io/).

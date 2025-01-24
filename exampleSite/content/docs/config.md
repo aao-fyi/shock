@@ -23,7 +23,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 
 | `[postCSS]` | Type | Default | Description |
 | ----------- | ---- | ------- | ----------- |
-| `state` | bool | `false` | Toggle PostCSS for CSS removal. |
+| `state` | bool | `false` | Toggle PostCSS for CSS removal. Requires `wrieStats` to be enabled in Hugo configuration, `hugo.toml`. |
 
 ### Header
 
@@ -56,7 +56,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `[breadcrumb]` | Type | Default | Description |
 | -------------- | ---- | ------- | ----------- |
 | `home` | bool | `false` | Should breadcrumb include home page link. |
-| `homeIcon` | string | `'folder-root'` | Icon to use for home page link, set to `''` to use title instead. |
+| `homeIcon` | string | `'folder-root'` | Icon to use for home page link, set to `''` to use title instead. Uses Lucide icon pack to select icon. |
 | `section` | bool | `false` | Toggle breadcrumb on section pages. |
 | `single` | bool | `false` | Toggle breadcrumb on single pages. |
 
@@ -91,6 +91,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `brandPNG` | string | `'img/logo/brand.png'` | Path to logo image used in header/nav. |
 
 ### Manifest
+Configuration for generating the `manifest.json` file.
 
 | `[manifest]` | Type | Default | Description |
 | ------------ | ---- | ------- | ----------- |
