@@ -9,6 +9,13 @@ draft: false
 ## Install Hugo
 Hugo Extended edition is required for this theme. Refer to [Hugo's installation documentation](https://gohugo.io/installation/).
 
+## Hugo Config
+To use the Shock theme, add a theme configuraton to the `hugo.toml` file.
+
+```toml
+theme = 'codeberg.org/aao-fyi/shock'
+```
+
 ## Download
 Download the Shock Example Site to use as your project template. This section details this process with Git or Tar, either method will achieve the following:
 

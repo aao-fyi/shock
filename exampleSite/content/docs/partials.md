@@ -20,6 +20,35 @@ Renders a breadcrumb trail of the page ancestors, as defined by Hugo. Utilizes b
 {{ partial "breadcrumb" . }}
 ```
 
+## Card Tree
+Creates navigation cards for a given context. On the `home` page, creates cards for sections only. On `section` and `page` pages, creates cards for all pages. Includes a page counter when multiple pages are nested.
+
+```html
+{{ partial "card-tree" . }}
+```
+
+## Carousel
+Creates carousel of images. Pass images in as a dictionary. Uses `carousel-image` partial to process images for output.
+
+```html
+{{ $projectImages := resources.Match "images/example/*" }}
+{{ partial "carousel" (dict "images" $projectImages) }}
+```
+
+```html
+{{ $projectImages := slice "images/example/1.jpg" "img/exp/4.jpg" }}
+{{ partial "carousel" (dict "images" $projectImages) }}
+```
+
+## Carousel Image
+Processing partial for images loaded in the `carousel` partial. Resizes the images to 1920x, preserving aspect ratio, and compresses the image using `lanczos`.
+
+```html
+{{ range $projectImages }}
+  {{ partial "carousel-image" . }}
+{{ end }}
+```
+
 ## Connect
 Connect renders the "connect" menu (`.Site.Menus.Connect`) in an unordered list with the `nav` class. Will use link, title, icon, and color information as configured.
 
@@ -99,6 +128,20 @@ The `icon-brand` partial has a matching shortcode.
 | ----------------- | ------ | ----- |
 | `{{</* icon-brand "hugo" */>}}` | {{< icon-brand "hugo" >}} | Icon from Simple Icons. |
 | `{{</* icon-brand "codeberg" */>}}` | {{< icon-brand "codeberg" >}} | Icon from Simple Icons. |
+
+## Include Markdown
+Include a markdown file and markdownify it.
+
+```html
+{{ partial "include-md" . }}
+```
+
+### Shortcode
+The `include-md` partial has a matching shortcode.
+
+```md
+{{</* include-md "path/to/file.md" */>}}
+```
 
 ## Last Mod
 Last modified date for given context.
