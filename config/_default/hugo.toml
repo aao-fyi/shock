@@ -44,8 +44,8 @@
   [privacy.disqus]
     disable = true
   [privacy.googleAnalytics]
-    anonymizeIP = true
     disable = true
+    anonymizeIP = true
     respectDoNotTrack = true
     useSessionStorage = true
   [privacy.instagram]
