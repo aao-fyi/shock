@@ -17,9 +17,17 @@
 {{ end }}
 
 {{/* Main */}}
+{{ $mainOpts := dict
+  "minify" hugo.IsProduction
+  "sourceMap" (cond hugo.IsProduction "" "external")
+  "targetPath" "js/main.min.js"
+}}
+
 {{ if $sourceJS }}
-  {{ $mainJS := $sourceJS | resources.Concat "js/main.js" | minify }}
-  {{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
-  <script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>
+  {{ $buildJS := $sourceJS | resources.Concat "js/main.js" | js.Build $mainOpts }}
+  {{ $buildSRI := $buildJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $buildSRI.RelPermalink }}" integrity="{{ $buildSRI.Data.Integrity }}"></script>
 {{ end }}
+
+
 
