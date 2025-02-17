@@ -12,6 +12,7 @@ title: Error
 description: Error response pages.
 icon: file-warning
 sitemap_exclude: true
+breadcrumb: false
 sidebar: false
 draft: false
 ---
