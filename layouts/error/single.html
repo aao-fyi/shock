@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+  {{ $errorTitle := (default "000" .Page.Title) }}
+  {{ $errorDescription := (default "Error" .Page.Description) }}
+  {{ $errorIcon := (default "tornado" .Page.Params.Icon) }}
+
+  <div class="container my-5 text-center">
+    {{/* Error */}}
+    <h1>{{ $errorTitle }}</h1>
+    <p class="h2">{{ $errorDescription }}</p>
+
+    {{/* Icon */}}
+    <div class="h1 my-4" aria-hidden="true">
+      {{ partial "icon" $errorIcon }}
+    </div>
+
+    {{/* Content */}}
+    <div class="lead my-4">
+      {{ .Content | safeHTML }}
+    </div>
+
+    {{/* Button */}}
+    <a href="{{ .Site.BaseURL }}" class="btn btn-lg btn-secondary my-3" role="button">
+      Back Home {{ partial "icon" "chevrons-right" }}
+    </a>
+  </div>
+{{ end }}
