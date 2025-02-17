@@ -5,6 +5,8 @@ cascade:
     publishResources: true
     render: always
 build:
+    list: never
+    publishResources: true
     render: never
 title: Error
 description: Error response pages.
