@@ -13,6 +13,7 @@ description: Error response pages.
 icon: file-warning
 sitemap_exclude: true
 breadcrumb: false
+heading: false
 sidebar: false
 draft: false
 ---
