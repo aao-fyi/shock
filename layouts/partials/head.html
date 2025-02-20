@@ -67,8 +67,8 @@
 />
 
 {{/* Canonical */}}
-{{ with .Permalink }}
-  <link rel="canonical" href="{{ . }}" />
+{{ if and (.Permalink) (ne .Type "error") }}
+  <link rel="canonical" href="{{ .Permalink }}" />
 {{ end }}
 
 {{/* Manifest */}}
