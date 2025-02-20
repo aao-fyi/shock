@@ -1,6 +1,6 @@
 User-agent: *
 Sitemap: {{ "sitemap.xml" | absURL }}
-
 {{ range where .Pages "Params.sitemap_exclude" "eq" true }}
-Disallow: {{.RelPermalink }}
-{{ end }}
+Disallow: {{ .RelPermalink }}{{ end }}
+{{ with .Site.Params.robots.disallow }}{{ range . }}
+Disallow: {{ . }}{{ end }}{{ end }}
