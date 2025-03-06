@@ -31,11 +31,19 @@
           <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
         </div>
 
-        {{ $subPages := len .Pages }}
+        {{ $subPages := false }}
+        {{ if and .Pages .Page.Params.cards }}
+            {{ $subPages = (add (len .Pages) (len .Page.Params.cards)) }}
+        {{ else if .Pages }}
+            {{ $subPages = (len .Pages) }}
+        {{ else if .Page.Params.cards }}
+            {{ $subPages = (len .Page.Params.cards) }}
+        {{ end }}
+
         {{ if ge $subPages 1 }}
-          <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
-          {{ $subPages }}
-          </span>
+        <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
+        {{ $subPages }}
+        </span>
         {{ end }}
       </div>
     </div>
