@@ -95,5 +95,13 @@ Configuration for generating the `manifest.json` file.
 
 | `[manifest]` | Type | Default | Description |
 | ------------ | ---- | ------- | ----------- |
-| `state` | bool | `true` | Toggle manifest state. |
+| `state` | bool | `true` | Toggle manifest.json state. |
 | `brandPNG` | string | `'#333'` | Set manifest background color. |
+
+### Robots
+Additional configuration for the `robots.txt` file.
+
+| `[robots]` | Type | Default | Description |
+| ---------- | ---- | ------- | ----------- |
+| `disallow` | array | `[]` | Array of strings to disallow in robots.txt. Will be used as is, include slashes and wildcards.
+| `llmsTXT` | bool | `false` | Toggle llms.txt state. |

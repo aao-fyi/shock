@@ -77,6 +77,9 @@ HTML `<head>` configuration for all pages, includes SCSS loading. Loaded CSS sty
 {{ partial "head" . }}
 ```
 
+### manifest.json
+The head can generate a `manifest.json` file for the site. This is **enabled** by default and can be configured in site parameters.
+
 ## Header
 Main header and navigation bar.
 
