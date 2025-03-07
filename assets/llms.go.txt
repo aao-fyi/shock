@@ -21,7 +21,9 @@
 {{- end }}
 
 {{ range (where (sort .Pages "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-    - [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+    {{ if .Title -}}
+        - [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+    {{- end }}
 {{ end -}}
 
 {{/* Sub-Sections */}}
@@ -35,7 +37,9 @@
 {{- end }}
 
 {{ range (where (sort .Pages "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-    - [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+    {{ if .Title -}}
+        - [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+    {{- end }}
 {{ end }}
 {{ end -}}
 
