@@ -28,6 +28,3 @@
   {{ $buildSRI := $buildJS | resources.Fingerprint "sha384" }}
   <script defer src="{{ $buildSRI.RelPermalink }}" integrity="{{ $buildSRI.Data.Integrity }}"></script>
 {{ end }}
-
-
-
