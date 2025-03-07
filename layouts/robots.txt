@@ -11,3 +11,10 @@ Disallow: /404.html
 Disallow: /418.html
 Disallow: /500.html
 Disallow: /502.html
+
+{{/* LLMS */}}
+{{- $llmsGoTXT := resources.Get "llms.go.txt" -}}
+{{- if and $llmsGoTXT .Site.Params.robots.llmsTXT -}}
+  {{- $llmsTXT := $llmsGoTXT | resources.ExecuteAsTemplate "llms.txt" . -}}
+  llms-txt: {{ $llmsTXT.Permalink }}
+{{- end -}}

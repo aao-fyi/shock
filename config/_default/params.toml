@@ -63,3 +63,4 @@
 # Robots
 [robots]
   disallow = []
+  llmsTXT = false
