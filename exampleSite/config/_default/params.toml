@@ -1,3 +1,5 @@
+description = 'Shock is a Hugo theme for static sites.'
+
 # Bootstrap
 [bootstrap]
   javascript = true
@@ -59,3 +61,8 @@
 [manifest]
   state = true
   background = "#333"
+
+# Robots
+[robots]
+  disallow = []
+  llmsTXT = true
