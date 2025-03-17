@@ -8,3 +8,7 @@
   </div>
   {{ end }}
 </div>
+
+{{ if .Site.Params.heading.description }}
+<p>{{ .Page.Description }}</p>
+{{ end }}

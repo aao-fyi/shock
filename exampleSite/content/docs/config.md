@@ -67,6 +67,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `home` | bool | `false` | Toggle heading on home page. |
 | `section` | bool | `false` | Toggle heading on section pages. |
 | `single` | bool | `true` | Toggle heading on single pages. |
+| `description` | bool | `false` | Toggle heading page description. |
 
 ### Footer
 
