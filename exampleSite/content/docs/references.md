@@ -28,6 +28,16 @@ Store references in markdown files within the `assets/references` directory. Som
 + `assets/references/linux.md`
 + `assets/references/random-words.md`
 
+A reference file should have one entry per line, formatted as a default Hugo reference. Refer to the following example.
+
+```txt
+<!-- assets/references/example.md -->
+<!-- Can have HTML style comments -->
+[^example-1]: Valid reference. "[Example 1](https://gohugo.io)." 2025.
+[^example-2]: Valid reference example 2. https://gohugo.io.
+[^example-3]: Another reference example number three.
+```
+
 ## Shortcode
 Use the `references` shortcode at the end of the page. The shortcode will check for any references within the document and find the matching citation from the assets directory. The shortcode will create an `h2` heading and list all used references.
 
