@@ -40,6 +40,7 @@ description = 'Shock is a Hugo theme for static sites.'
   home = false
   section = false
   single = true
+  description = true
 
 # Footer
 [footer]

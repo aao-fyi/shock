@@ -1,14 +1,15 @@
+title = 'Shock'
+
 # Info
 baseURL = 'https://shock.aao.fyi/'
 languageCode = 'en'
-title = 'Shock'
 copyright = 'aao.fyi'
 
 # Theme
 theme = 'codeberg.org/aao-fyi/shock'
 
 # Features
-disableHugoGeneratorInject = false
+disableHugoGeneratorInject = true
 disableKinds = []
 enableGitInfo = true
 enableRobotsTXT = true

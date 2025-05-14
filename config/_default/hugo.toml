@@ -1,6 +1,14 @@
 title = 'Shock'
 
+# Features
+disableHugoGeneratorInject = false
+disableKinds = []
+enableGitInfo = false
 enableRobotsTXT = true
+
+# Minify
+[minify]
+  minifyOutput = true
 
 # Build
 [build]
