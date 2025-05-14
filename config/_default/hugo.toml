@@ -20,7 +20,7 @@ enableRobotsTXT = true
   # Version
   [module.hugoVersion]
     extended = true
-    min = '0.128.0' # If changed, update theme.toml
+    min = '0.146.0' # If changed, update theme.toml
 
   # Bootstrap
   [[module.imports]]
@@ -63,7 +63,7 @@ enableRobotsTXT = true
   [privacy.instagram]
     disable = true
     simple = true
-  [privacy.twitter]
+  [privacy.x]
     disable = true
     enableDNT = true
     simple = true
