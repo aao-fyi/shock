@@ -9,4 +9,4 @@
 {{/* end */}}
 
 {{ $image = $image | resources.Copy (printf "%s" $source.RelPermalink) }}
-<img src="{{ $image.RelPermalink }}" class="d-block w-100" alt="{{ humanize .Name }}"></img>
+<img src="{{ $image.RelPermalink }}" class="d-block w-100" loading="lazy" alt="{{ humanize .Name }}" />
