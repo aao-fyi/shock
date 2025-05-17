@@ -17,7 +17,7 @@
 {{ end }}
 
 <div class="container my-4">
-  <div class="row row-cols-1 row-cols-lg-{{ $cardMaxCols }} row-cols-md-3 row-cols-sm-2 g-4">
+  <div class="row row-cols-1 row-cols-xl-{{ $cardMaxCols }} row-cols-lg-3 row-cols-md-2 g-4">
 
   {{ range $treeRoot }}
     {{ $pageIcon := (default .Parent.Params.Icon .Page.Params.Icon) }}
