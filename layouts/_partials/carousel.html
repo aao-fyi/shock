@@ -4,17 +4,13 @@
 {{ if $carouselImages }}
 <div id="{{ $carouselID }}" class="carousel slide">
 <div class="carousel-inner">
-  {{ range first 1 $carouselImages }}
-    <div class="carousel-item active">
-      {{- partial "carousel-image" . -}}
+  {{ range $carouselIndex, $carouselImage := $carouselImages }}
+    {{/* Make first image active */}}
+    <div class="carousel-item {{ if eq $carouselIndex 0 }}active{{ end }}">
+      {{- partial "carousel-image" $carouselImage -}}
     </div>
   {{ end }}
 
-  {{ range after 1 $carouselImages }}
-    <div class="carousel-item">
-      {{- partial "carousel-image" . -}}
-    </div>
-  {{ end }}
   <button class="carousel-control-prev" type="button" data-bs-target="#{{ $carouselID }}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
