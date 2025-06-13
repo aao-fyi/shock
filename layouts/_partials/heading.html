@@ -1,14 +1,16 @@
-<div class="row justify-content-between my-3">
-  <div class="col-auto">
-    <h1>{{ .Page.Title }}</h1>
+<div class="container">
+  <div class="row justify-content-between my-3">
+    <div class="col-auto">
+      <h1>{{ .Page.Title }}</h1>
+    </div>
+    {{ if and (not .IsHome) (not .IsSection) }}
+    <div class="col-auto">
+      <span class="badge text-bg-secondary">Last Edit: {{ partial "lastmod" . }}</span>
+    </div>
+    {{ end }}
   </div>
-  {{ if and (not .IsHome) (not .IsSection) }}
-  <div class="col-auto">
-    <span class="badge text-bg-secondary">Last Edit: {{ partial "lastmod" . }}</span>
-  </div>
+
+  {{ if .Site.Params.heading.description }}
+  <p>{{ .Page.Description }}</p>
   {{ end }}
 </div>
-
-{{ if .Site.Params.heading.description }}
-<p>{{ .Page.Description }}</p>
-{{ end }}

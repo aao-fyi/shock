@@ -67,14 +67,15 @@
         {{ end }}
         {{/* /Sidebar */}}
         <div class="py-2 col col-12 {{ if $sidebarStatePage }}col-lg-9 col-xxl-10{{ end }}">
-          {{/* Breadcrumb */}}
-          {{ if $breadcrumbStatePage }}
-            {{ partial "breadcrumb" . }}
-          {{ end }}
-          {{/* /Breadcrumb */}}
 
           {{/* Content */}}
           <div class="container-fluid my-4" {{ if $sidebarStatePage }}data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}"{{ end }} data-bs-smooth-scroll="true">
+            {{/* Breadcrumb */}}
+            {{ if $breadcrumbStatePage }}
+              {{ partial "breadcrumb" . }}
+            {{ end }}
+            {{/* /Breadcrumb */}}
+
             {{/* Heading */}}
             {{ if $headingStatePage }}
               {{ partial "heading" . }}
