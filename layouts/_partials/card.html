@@ -1,0 +1,52 @@
+{{/* Accepts list as input */}}
+{{ $cardTitle := .title }}
+{{ $cardIcon := .icon }}
+{{ $cardDescription := .description }}
+{{ $cardURL := .url }}
+{{ $cardURLList := .urllist }}
+
+<div class="card h-100">
+
+<div class="card-body">
+    {{ with $cardTitle }}<h5 class="card-title">{{ with $cardIcon }}{{ partial "icon" $cardIcon }} &nbsp; {{ end }}{{ $cardTitle }}</h5>{{ end }}
+    {{ with $cardDescription }}<p class="card-text">{{ $cardDescription }}</p>{{ end }}
+</div>
+
+{{ if or $cardURL $cardURLList }}
+<div class="card-footer text-center">
+    {{ if $cardURL }}
+        <a href="{{ $cardURL }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
+    {{ end }}
+
+    {{ if $cardURLList }}
+        {{ range $cardURLList }}
+            {{ partial "button" . }}
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}
+
+{{ if $cardURL }}
+
+    {{ $cardURLPage := site.GetPage .url }}
+
+    {{ with $cardURLPage }}
+        {{ $subPages := false }}
+        {{ if and .Pages .Page.Params.cards }}
+            {{ $subPages = (add (len .Pages) (len .Page.Params.cards)) }}
+        {{ else if .Pages }}
+            {{ $subPages = (len .Pages) }}
+        {{ else if .Page.Params.cards }}
+            {{ $subPages = (len .Page.Params.cards) }}
+        {{ end }}
+
+        {{ if ge $subPages 1 }}
+        <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
+        {{ $subPages }}
+        </span>
+        {{ end }}
+    {{ end }}
+
+{{ end }}
+
+</div>

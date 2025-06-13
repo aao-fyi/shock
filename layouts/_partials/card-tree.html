@@ -22,48 +22,14 @@
   {{ range $treeRoot }}
     {{ $pageIcon := (default .Parent.Params.Icon .Page.Params.Icon) }}
     <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }} &nbsp; {{ end }}{{ .Page.Title }}</h5>
-          <p class="card-text">{{ .Page.Description }}</p>
-        </div>
-        <div class="card-footer text-center">
-          <a href="{{ .Page.RelPermalink }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
-        </div>
-
-        {{ $subPages := false }}
-        {{ if and .Pages .Page.Params.cards }}
-            {{ $subPages = (add (len .Pages) (len .Page.Params.cards)) }}
-        {{ else if .Pages }}
-            {{ $subPages = (len .Pages) }}
-        {{ else if .Page.Params.cards }}
-            {{ $subPages = (len .Page.Params.cards) }}
-        {{ end }}
-
-        {{ if ge $subPages 1 }}
-        <span class="position-absolute top-0 start-100 translate-middle badge text-bg-info rounded-pill">
-        {{ $subPages }}
-        </span>
-        {{ end }}
-      </div>
+      {{ partial "card" (dict "title" .Page.Title "icon" $pageIcon "description" .Page.Description "url" .Page.RelPermalink) }}
     </div>
   {{ end }}
 
   {{ with .Page.Params.cards }}
   {{ range . }}
-  {{ $pageIcon := .icon }}
     <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ with $pageIcon }}{{ partial "icon" . }}{{ end }} &nbsp; {{ .title }}</h5>
-          <p class="card-text">{{ .description }}</p>
-        </div>
-        <div class="card-footer text-center">
-          {{ with .links }}{{ range . }}
-            {{ partial "button" . }}
-          {{ end }}{{ end }}
-        </div>
-      </div>
+        {{ partial "card" (dict "title" .title "icon" .icon "description" .description "urllist" .links) }}
     </div>
   {{ end }}
   {{ end }}
