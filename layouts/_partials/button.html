@@ -9,7 +9,7 @@
   {{ with $buttonURL }}href="{{ . }}"{{ end }}
   {{ with $buttonTitle }}title="{{ . }}"{{ end }}
   {{ if strings.HasPrefix $buttonURL "http" }}target="_blank" rel="noopener noreferrer"{{ end }}
-  class="btn btn-{{ $buttonType }} m-2"
+  class="btn btn-{{ $buttonType }} m-2 shadow-sm"
 >
 {{ if $buttonBrand }}
   {{ partial "icon-brand" $buttonBrand }}

@@ -5,7 +5,7 @@
 {{ $cardURL := .url }}
 {{ $cardURLList := .urllist }}
 
-<div class="card h-100">
+<div class="card h-100 shadow">
 
 <div class="card-body">
     {{ with $cardTitle }}<h5 class="card-title">{{ with $cardIcon }}{{ partial "icon" $cardIcon }} &nbsp; {{ end }}{{ $cardTitle }}</h5>{{ end }}
