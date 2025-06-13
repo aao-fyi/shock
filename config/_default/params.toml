@@ -14,12 +14,14 @@ description = 'Shock is a Hugo theme for static sites.'
   brandLogo = false
   brandText = true
   fixedTop = true
+  shadow = true
 
 # Banner
 [banner]
   home = true
   section = true
   single = false
+  shadow = true
 
 # Sidebar
 [sidebar]
@@ -46,6 +48,7 @@ description = 'Shock is a Hugo theme for static sites.'
 [footer]
   state = true
   stick = true
+  shadow = true
 
 # Copyright
 [copyright]

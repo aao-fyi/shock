@@ -1,6 +1,6 @@
 {{ if .Site.Params.footer.state }}
 {{ $footerStick := .Site.Params.footer.stick }}
-<footer class="py-3 bg-body-tertiary {{ if $footerStick }}mt-auto{{ end }} shadow">
+<footer class="py-3 bg-body-tertiary {{ if $footerStick }}mt-auto{{ end }} {{ with .Site.Params.footer.shadow }}shadow{{ end }}">
 <div class="container mt-3">
   {{ if .Site.Menus.footer }}
     <ul class="nav justify-content-center pb-3 mb-3">

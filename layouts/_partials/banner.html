@@ -1,4 +1,4 @@
-<div class="py-5 text-bg-secondary shadow">
+<div class="py-5 text-bg-secondary {{ with .Site.Params.banner.shadow }}shadow{{ end }}">
   <div class="container text-center">
     <h1>{{ .Page.Title }}</h1>
     <p>{{ .Page.Description }}</p>
