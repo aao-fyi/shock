@@ -4,6 +4,7 @@
 {{ $cardDescription := .description }}
 {{ $cardURL := .url }}
 {{ $cardURLList := .urllist }}
+{{ $cardURLText := (default "View" .urltext) }}
 
 <div class="card h-100 shadow">
 
@@ -15,7 +16,7 @@
 {{ if or $cardURL $cardURLList }}
 <div class="card-footer text-center">
     {{ if $cardURL }}
-        <a href="{{ $cardURL }}" class="btn btn-secondary m-2">View {{ partial "icon" "chevrons-right" }}</a>
+        <a href="{{ $cardURL }}" class="btn btn-secondary m-2">{{ $cardURLText }} {{ partial "icon" "chevrons-right" }}</a>
     {{ end }}
 
     {{ if $cardURLList }}
