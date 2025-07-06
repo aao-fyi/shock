@@ -59,7 +59,49 @@ document.addEventListener("DOMContentLoaded", function() {
                 Shock.Highlight.copyButtonCreate(highlightDiv)
             );
         }
+    },
+
+    Shock.Theme = {
+        states: [
+            { value: 'auto', selector: '.theme-auto' },
+            { value: 'light', selector: '.theme-light' },
+            { value: 'dark',  selector: '.theme-dark' }
+        ],
+
+        stateIndex: 0,
+
+        applyTheme: function(themeButton) {
+            const currentState = Shock.Theme.states[Shock.Theme.stateIndex];
+
+            localStorage.setItem('shock-theme-state', currentState.value);
+
+            document.documentElement.setAttribute('data-bs-theme', currentState.value);
+
+            Shock.Theme.states.forEach((state, stateIndex) => {
+                const themeSpan = themeButton.querySelector(state.selector);
+                if (themeSpan) {
+                    themeSpan.style.display = (stateIndex === Shock.Theme.stateIndex) ? 'inline' : 'none';
+                }
+            });
+        },
+
+        init: function(themeToggleID) {
+            const themeButton = document.getElementById(themeToggleID);
+            if (!themeButton) return;
+
+            const shockThemeState = localStorage.getItem('shock-theme-state') || 'auto';
+            const initialIndex = Shock.Theme.states.findIndex(state => state.value === shockThemeState);
+            Shock.Theme.stateIndex = initialIndex >= 0 ? initialIndex : 0;
+
+            Shock.Theme.applyTheme(themeButton);
+
+            themeButton.addEventListener('click', () => {
+                Shock.Theme.stateIndex = (Shock.Theme.stateIndex + 1) % Shock.Theme.states.length;
+                Shock.Theme.applyTheme(themeButton);
+            });
+        }
     }
 
+    Shock.Theme.init("shock-theme-toggle");
     Shock.Highlight.init("highlight");
 });

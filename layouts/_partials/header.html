@@ -66,29 +66,13 @@
 
           {{/* Theme */}}
           {{ if .Site.Params.bootstrap.javascript }}
-            <li class="nav-item dropdown">
+            <li class="nav-item">
               {{/* Theme Toggler */}}
-              <button class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown" title="Theme">
-                {{ partial "icon" "paintbrush" }}
+              <button id="shock-theme-toggle" type="button" class="btn btn-secondary" title="Toggle Theme">
+                <span class="theme-auto">{{ partial "icon" "contrast" }}</span>
+                <span class="theme-light" style="display: none;">{{ partial "icon" "sun" }}</span>
+                <span class="theme-dark" style="display: none;">{{ partial "icon" "moon" }}</span>
               </button>
-
-              {{/* Theme Options */}}
-              <ul class="dropdown-menu dropdown-menu-end">
-                {{/* Auto */}}
-                <li>
-                  <button class="dropdown-item btn btn-link" type="button" data-bs-theme-value="auto">{{ partial "icon" "contrast" }} Auto</button>
-                </li>
-
-                {{/* Light */}}
-                <li>
-                  <button class="dropdown-item btn btn-link" type="button" data-bs-theme-value="light">{{ partial "icon" "sun" }} Light</button>
-                </li>
-
-                {{/* Dark */}}
-                <li>
-                  <button class="dropdown-item btn btn-link" type="button" data-bs-theme-value="dark">{{ partial "icon" "moon" }} Dark</button>
-                </li>
-              </ul>
             </li>
           {{ end }}
 
