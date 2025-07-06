@@ -1,9 +1,9 @@
 title = 'Shock'
 
 # Features
-disableHugoGeneratorInject = false
+disableHugoGeneratorInject = true
 disableKinds = []
-enableGitInfo = false
+enableGitInfo = true
 enableRobotsTXT = true
 
 # Minify
