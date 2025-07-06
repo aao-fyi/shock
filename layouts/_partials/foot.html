@@ -1,30 +1,40 @@
+{{ $sourceJS := slice }}
+
+
+
 {{/* Bootstrap */}}
-{{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
-{{ $bootstrapColorMode := resources.Get "js/bootstrap-colormode.js" }}
+{{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.min.js" }}
+
+{{ if and (.Site.Params.bootstrap.javascript) ($bootstrapJS) }}
+  {{ $sourceJS = $sourceJS | append $bootstrapJS }}
+{{ end }}
+
+
 
 {{/* Shock */}}
 {{ $shockJS := resources.Get "js/shock.js" }}
-
-{{/* Site */}}
 {{ $siteJS := resources.Get "js/site.js" }}
 
-{{/* Source */}}
-{{ $sourceJS := slice }}
-{{ if .Site.Params.bootstrap.javascript }}
-  {{ $sourceJS = slice $bootstrapJS $bootstrapColorMode $shockJS $siteJS }}
-{{ else if or ($shockJS.Content) ($siteJS.Content) }}
-  {{ $sourceJS = slice $shockJS $siteJS }}
+{{ if or ($shockJS.Content) ($siteJS.Content) }}
+  {{ $buildSRC := slice $shockJS $siteJS }}
+
+  {{ $buildOpts := dict
+    "minify" hugo.IsProduction
+    "sourceMap" ""
+    "targetPath" "js/build.min.js"
+  }}
+
+  {{ $buildJS := $buildSRC | resources.Concat "js/build.js" | js.Build $buildOpts }}
+
+  {{ $sourceJS = $sourceJS | append $buildJS }}
 {{ end }}
+
+
 
 {{/* Main */}}
-{{ $mainOpts := dict
-  "minify" hugo.IsProduction
-  "sourceMap" (cond hugo.IsProduction "" "external")
-  "targetPath" "js/main.min.js"
-}}
-
 {{ if $sourceJS }}
-  {{ $buildJS := $sourceJS | resources.Concat "js/main.js" | js.Build $mainOpts }}
-  {{ $buildSRI := $buildJS | resources.Fingerprint "sha384" }}
-  <script defer src="{{ $buildSRI.RelPermalink }}" integrity="{{ $buildSRI.Data.Integrity }}"></script>
+  {{ $mainJS := $sourceJS | resources.Concat "js/main.js" }}
+  {{ $mainSRI := $mainJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $mainSRI.RelPermalink }}" integrity="{{ $mainSRI.Data.Integrity }}"></script>
 {{ end }}
+
