@@ -2,6 +2,7 @@
 {{ $description := default (default .Site.Title .Site.Params.Description) (default .Summary .Description) }}
 {{ $keywords := default .Site.Params.Keywords .Page.Params.Keywords }}
 {{ $author := .Site.Author.name }}
+{{ $fediverse := default .Site.Params.connect.fediverse .Page.Params.connect.fediverse }}
 
 {{/* Brand */}}
 {{/* LOOKHERE: Move this to partial with size input */}}
@@ -19,6 +20,11 @@
 {{ with $description }}<meta name="description" content="{{ . }}" />{{ end }}
 {{ with $keywords }}<meta name="keywords" content="{{ . }}" />{{ end }}
 {{ with $author }}<meta name="author" content="{{ . }}" />{{ end }}
+
+{{/* Fediverse */}}
+{{ with $fediverse }}
+  <meta name="fediverse:creator" content="{{ . }}">
+{{ end }}
 
 {{/* Open Graph */}}
 <meta property="og:type" content="website" />
