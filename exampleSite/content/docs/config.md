@@ -76,6 +76,12 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `state` | bool | `true` | Toggle footer state. |
 | `stick` | bool | `true` | If footer should stick to the bottom of the page when there is not enough content to fill the page. |
 
+### Connect
+
+| `[connect]` | Type | Default | Description |
+| ------------- | ---- | ------- | ----------- |
+| `fediverse` | string | `''` | Fediverse author for `meta` tag support, can be overridden on individual pages with parameter `.Page.Param.connect.fediverse`. |
+
 ### Copyright
 
 | `[copyright]` | Type | Default | Description |

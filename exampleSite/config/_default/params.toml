@@ -47,6 +47,10 @@ description = 'Shock is a Hugo theme for static sites.'
   state = true
   stick = true
 
+# Connect
+[connect]
+  fediverse = ''
+
 # Copyright
 [copyright]
   name = ''
