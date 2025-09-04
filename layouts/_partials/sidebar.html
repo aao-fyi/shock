@@ -3,7 +3,7 @@
   <div class="sticky-lg-top sidebar-content overflow-x-hidden overflow-y-scroll vh-100">
     <div class="offcanvas-header">
       <h5>Table of Contents</h5>
-      <button class="navbar-toggler ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-label="Close">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-label="Close">
         {{ partial "icon" "panel-left-close" }}
       </button>
     </div>
@@ -13,11 +13,11 @@
         <ul>
         {{ range .Pages }}
           <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}">{{ .Title }}</a>
             {{ if .IsSection }}
               <ul>
               {{ range .Pages }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}">{{ .Title }}</a></li>
               {{ end }}
               </ul>
             {{ end }}

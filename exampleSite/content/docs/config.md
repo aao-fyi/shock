@@ -49,7 +49,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `home` | bool | `false` | Toggle sidebar on home page.
 | `section` | bool | `false` | Toggle sidebar on section pages. |
 | `single` | bool | `false` | Toggle sidebar on single pages. |
-| `tableofcontentsID` | string | `sidebar-tableofcontents` | ID to assign table of contents wrapper. |
+| `tableofcontentsID` | string | `sb-toc` | ID to assign table of contents wrapper. |
 
 ### Breadcrumb
 

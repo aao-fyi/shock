@@ -17,7 +17,7 @@
       {{/* /SidebarToggler */}}
 
       {{ if $sidebarState }}
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-tableofcontents" aria-controls="sidebar-tableofcontents">
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
         {{ partial "icon" "panel-left-open" }}
       </button>
       {{ end }}

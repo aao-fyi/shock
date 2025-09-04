@@ -26,7 +26,7 @@ description = 'Shock is a Hugo theme for static sites.'
   home = false
   section = false
   single = true
-  tableofcontentsID = 'sidebar-tableofcontents'
+  tableofcontentsID = 'sb-toc'
 
 # Breadcrumbs
 [breadcrumb]
