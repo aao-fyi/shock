@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Shock.Highlight = {
         // Lucide Icons - `copy` && `check-square`
+        // Copy button SVGs to be inserted
         copyIcon: '<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect width="13" height="13" x="9" y="9" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></span>',
         copiedIcon: '<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>',
 
@@ -61,6 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     },
 
+    // Shock Theme
+    // Theme control logic
     Shock.Theme = {
         states: [
             { value: 'auto', selector: '.theme-auto' },
@@ -100,8 +103,41 @@ document.addEventListener("DOMContentLoaded", function() {
                 Shock.Theme.applyTheme(themeButton);
             });
         }
+    },
+
+    Shock.Offcanvas = {
+        // Add Dismiss Attributes
+        // Accepts element as input
+        addDismissAttributes: function(offcanvasDiv) {
+            if (!offcanvasDiv || !(offcanvasDiv instanceof Element)) {
+                console.error("Offcanvas input invalid or not an element.");
+                return;
+            }
+
+            const offcanvasDivID = offcanvasDiv.id;
+            if (!(offcanvasDivID)) {
+                console.error("Offcanvas element does not have ID.");
+                return;
+            }
+
+            const offcanvasDivLinks = offcanvasDiv.querySelectorAll("a");
+            offcanvasDivLinks.forEach(offcanvasDivLink => {
+               offcanvasDivLink.setAttribute('data-bs-dismiss', 'offcanvas');
+               offcanvasDivLink.setAttribute('data-bs-target', `#${offcanvasDivID}`);
+            });
+        },
+
+        // Init
+        // Make all offcanvas dismissable
+        init: function(offcanvasClass) {
+            document.querySelectorAll(`.${offcanvasClass}`).forEach((offcanvasDiv) =>
+                Shock.Offcanvas.addDismissAttributes(offcanvasDiv)
+            );
+        }
     }
 
+    // Initialize
     Shock.Theme.init("shock-theme-toggle");
     Shock.Highlight.init("highlight");
+    Shock.Offcanvas.init("offcanvas-lg");
 });

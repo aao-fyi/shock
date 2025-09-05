@@ -13,11 +13,11 @@
         <ul>
         {{ range .Pages }}
           <li>
-            <a href="{{ .RelPermalink }}" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>test
             {{ if .IsSection }}
               <ul>
               {{ range .Pages }}
-                <li><a href="{{ .RelPermalink }}" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}">{{ .Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ end }}
               </ul>
             {{ end }}
