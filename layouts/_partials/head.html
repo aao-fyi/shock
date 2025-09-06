@@ -49,9 +49,9 @@
 {{ end }}
 
 {{/* Style */}}
-{{ $styleOptions := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 {{ $styleSCSS := resources.Get "scss/_style.scss" }}
 {{ $styleHugo := resources.Match "scss/*.go.scss" }}
+{{ $styleOptions := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enableSourceMap" hugo.IsDevelopment) }}
 
 {{ if $styleHugo }}
   {{ $styleHugo := $styleHugo | resources.Concat "scss/_hugo.go.scss" | resources.ExecuteAsTemplate "scss/_hugo.scss" . }}
