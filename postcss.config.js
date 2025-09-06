@@ -9,6 +9,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     let els = JSON.parse(content).htmlElements;
     return els.tags.concat(els.classes, els.ids);
   },
+  sourceMap: false,
   safelist: {
     standard: [
       'active',
@@ -39,8 +40,9 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
       'was-validated'
     ],
     deep: [
-      'highlight',
-      'highlight-copy', 'highlight-wrapper'
+      /^highlight$/,
+      /^highlight-copy$/,
+      /^highlight-wrapper$/
     ]
   },
   dynamicAttributes: [
