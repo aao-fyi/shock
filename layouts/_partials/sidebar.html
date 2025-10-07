@@ -1,5 +1,11 @@
 {{/* Sidebar */}}
-<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-lg offcanvas-start bg-body-tertiary h-100">
+{{ $pagesSidebar := false }}
+
+{{ if or (.IsHome) (.IsSection) }}
+  {{ $pagesSidebar = true }}
+{{ end }}
+
+<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-lg offcanvas-start bg-body-tertiary h-100 {{ if not $pagesSidebar }}offcanvas-dismiss-js{{ end }}">
   <div class="sticky-lg-top sidebar-content overflow-x-hidden overflow-y-scroll vh-100">
     <div class="offcanvas-header">
       <h5>Table of Contents</h5>
@@ -8,7 +14,7 @@
       </button>
     </div>
 
-    {{ if or (.IsHome) (.IsSection) }}
+    {{ if $pagesSidebar }}
       <nav id="TableOfContents">
         <ul>
         {{ range .Pages }}

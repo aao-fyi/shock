@@ -139,5 +139,5 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize
     Shock.Theme.init("shock-theme-toggle");
     Shock.Highlight.init("highlight");
-    Shock.Offcanvas.init("offcanvas-lg");
+    Shock.Offcanvas.init("offcanvas-dismiss-js");
 });
