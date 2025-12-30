@@ -28,12 +28,28 @@
 
           {{/* Brand Logo */}}
           {{ if .Site.Params.header.brandLogo }}
+            {{ $mainSVG := resources.Get .Site.Params.logo.mainSVG }}
             {{ $mainPNG := resources.Get .Site.Params.logo.mainPNG }}
+            {{ $brandSVG := resources.Get .Site.Params.logo.brandSVG }}
             {{ $brandPNG := resources.Get .Site.Params.logo.brandPNG }}
-            {{ $brandLogo := default $mainPNG $brandPNG }}
+
+            {{ $brandLogo := "" }}
+
+            {{ if $brandSVG }}
+              {{ $brandLogo = $brandSVG | resources.Copy (printf "img/logo/%s-brand.svg" (urlize (default "logo" .Site.Title))) }}
+              {{ $brandLogo = $brandLogo.RelPermalink }}
+            {{ else if $brandPNG }}
+              {{ $brandLogo = $brandPNG.Resize "256x" | resources.Copy (printf "/img/logo/%s-brand.png" (urlize (default "logo" .Site.Title))) }}
+              {{ $brandLogo = $brandLogo.RelPermalink }}
+            {{ else if $mainSVG }}
+              {{/* Use image generated in head */}}
+              {{ $brandLogo = (printf "/img/logo/%s.svg" (urlize .Site.Title)) }}
+            {{ else if $mainPNG }}
+              {{ $brandLogo = (printf "/img/logo/%s256.png" (urlize .Site.Title)) }}
+            {{ end }}
+
             {{ if $brandLogo }}
-              {{ $brandLogo = $brandLogo.Resize "256x" | resources.Copy (printf "/img/logo/%s-brand-256.png" (urlize .Site.Title)) }}
-              <img src="{{ $brandLogo.RelPermalink }}" alt="{{ .Site.Title }}" height="50" />
+              <img src="{{ $brandLogo }}" alt="{{ .Site.Title }}" height="50" />
             {{ end }}
           {{ end }}
 

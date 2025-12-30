@@ -58,7 +58,9 @@ description = 'Shock is a Hugo theme for static sites.'
 
 # Logo
 [logo]
+  mainSVG = 'img/logo/logo.svg'
   mainPNG = 'img/logo/logo.png'
+  brandSVG = 'img/logo/brand.svg'
   brandPNG = 'img/logo/brand.png'
 
 # Manifest
