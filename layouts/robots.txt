@@ -12,6 +12,8 @@ Disallow: /418.html
 Disallow: /500.html
 Disallow: /502.html
 
+Disallow: /cdn-cgi/
+
 {{/* LLMS */}}
 {{- $llmsGoTXT := resources.Get "llms.go.txt" -}}
 {{- if and $llmsGoTXT .Site.Params.robots.llmsTXT -}}
