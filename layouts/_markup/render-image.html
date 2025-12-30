@@ -2,5 +2,6 @@
   src="{{ .Destination | safeURL }}"
   alt="{{ .Text }}"
   class="img-fluid"
+  loading="lazy"
   {{ with .Title }} title="{{ . }}"{{ end }}
 />
