@@ -1,9 +1,5 @@
 description = 'Shock is a Hugo theme for static sites.'
 
-# Bootstrap
-[bootstrap]
-  javascript = true
-
 # PostCSS
 [postCSS]
   state = true

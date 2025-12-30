@@ -46,13 +46,13 @@
       {{ end }}
 
       {{/* Navbar Toggler */}}
-      {{ if or (.Site.Menus.main) (.Site.Params.bootstrap.javascript) }}
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-open">{{ partial "icon" "menu" }}</span>
         <span class="navbar-toggler-close">{{ partial "icon" "x" }}</span>
       </button>
 
-      <div id="navbar-menu-items" class="navbar-collapse justify-content-end collapse">
+      <div id="navbar-menu-items" class="navbar-collapse justify-content-end collapse text-end">
+        <hr/>
         <ul class="navbar-nav fs-5">
           {{ if .Site.Menus.main }}
           {{ range sort .Site.Menus.main "Weight" }}
@@ -65,20 +65,17 @@
           {{ end }}
 
           {{/* Theme */}}
-          {{ if .Site.Params.bootstrap.javascript }}
-            <li class="nav-item">
-              {{/* Theme Toggler */}}
-              <button id="shock-theme-toggle" type="button" class="btn btn-secondary" title="Toggle Theme">
-                <span class="theme-auto">{{ partial "icon" "contrast" }}</span>
-                <span class="theme-light" style="display: none;">{{ partial "icon" "sun" }}</span>
-                <span class="theme-dark" style="display: none;">{{ partial "icon" "moon" }}</span>
-              </button>
-            </li>
-          {{ end }}
+          <li class="nav-item">
+            {{/* Theme Toggler */}}
+            <button id="shock-theme-toggle" type="button" class="btn btn-secondary" title="Toggle Theme">
+              <span class="theme-auto">{{ partial "icon" "contrast" }}</span>
+              <span class="theme-light" style="display: none;">{{ partial "icon" "sun" }}</span>
+              <span class="theme-dark" style="display: none;">{{ partial "icon" "moon" }}</span>
+            </button>
+          </li>
 
         </ul>
       </div>
-      {{ end }}
     </div>
   </nav>
 </header>

@@ -2,15 +2,6 @@
 
 
 
-{{/* Bootstrap */}}
-{{ $bootstrapJS := resources.Get "js/bootstrap/bootstrap.min.js" }}
-
-{{ if and (.Site.Params.bootstrap.javascript) ($bootstrapJS) }}
-  {{ $sourceJS = $sourceJS | append $bootstrapJS }}
-{{ end }}
-
-
-
 {{/* Shock */}}
 {{ $shockJS := resources.Get "js/shock.js" }}
 {{ $siteJS := resources.Get "js/site.js" }}
@@ -19,8 +10,8 @@
   {{ $buildSRC := slice $shockJS $siteJS }}
 
   {{ $buildOpts := dict
-    "minify" hugo.IsProduction
-    "sourceMap" ""
+    "minify" (not hugo.IsDevelopment)
+    "sourceMap" (cond hugo.IsDevelopment "external" "")
     "targetPath" "js/build.min.js"
   }}
 

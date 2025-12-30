@@ -29,7 +29,7 @@ enableRobotsTXT = true
     source = 'scss/'
     target = 'assets/scss/bootstrap/'
   [[module.imports.mounts]]
-    source = 'dist/js/'
+    source = 'js/src/'
     target = 'assets/js/bootstrap/'
   # Bootstrap RFS
   [[module.imports]]
