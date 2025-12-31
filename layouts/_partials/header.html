@@ -1,8 +1,8 @@
 <header class="{{ with .Site.Params.header.fixedTop }}sticky-top{{ end }} bg-primary {{ with .Site.Params.header.shadow }}shadow{{ end }}">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
+  <nav class="container-fluid navbar-dark py-2">
+    <div class="row">
 
-      {{/* SidebarToggler */}}
+      {{/* Sidebar */}}
       {{ $sidebarState := false }}
 
       {{ if .Page.Params.sidebar }}
@@ -17,14 +17,18 @@
       {{/* /SidebarToggler */}}
 
       {{ if $sidebarState }}
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
-        {{ partial "icon" "panel-left-open" }}
-      </button>
+      <div class="col d-flex justify-content-start d-lg-none">
+        <button class="btn btn-secondary m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
+          {{ partial "icon" "panel-left-open" }}
+        </button>
+      </div>
       {{ end }}
+      {{/* /Sidebar */}}
 
       {{/* Brand */}}
       {{ if or (.Site.Params.header.brandLogo) (.Site.Params.header.brandText) }}
-        <a class="navbar-brand py-0" href="{{ .Site.BaseURL }}">
+      <div class="col d-flex {{ if $sidebarState }}justify-content-center{{ end }} justify-content-lg-start">
+        <a class="navbar-brand lh-lg fs-4" href="{{ .Site.BaseURL }}">
 
           {{/* Brand Logo */}}
           {{ if .Site.Params.header.brandLogo }}
@@ -59,39 +63,28 @@
           {{ end }}
 
         </a>
-      {{ end }}
-
-      {{/* Navbar Toggler */}}
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-open">{{ partial "icon" "menu" }}</span>
-        <span class="navbar-toggler-close">{{ partial "icon" "x" }}</span>
-      </button>
-
-      <div id="navbar-menu-items" class="navbar-collapse justify-content-end collapse text-end">
-        <hr/>
-        <ul class="navbar-nav fs-5">
-          {{ if .Site.Menus.main }}
-          {{ range sort .Site.Menus.main "Weight" }}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
-                {{ .Name }}
-              </a>
-            </li>
-          {{ end }}
-          {{ end }}
-
-          {{/* Theme */}}
-          <li class="nav-item">
-            {{/* Theme Toggler */}}
-            <button id="shock-theme-toggle" type="button" class="btn btn-secondary" title="Toggle Theme">
-              <span class="theme-auto">{{ partial "icon" "contrast" }}</span>
-              <span class="theme-light" style="display: none;">{{ partial "icon" "sun" }}</span>
-              <span class="theme-dark" style="display: none;">{{ partial "icon" "moon" }}</span>
-            </button>
-          </li>
-
-        </ul>
       </div>
+      {{ end }}
+      {{/* /Brand */}}
+
+      {{/* Togglers */}}
+      <div class="col d-flex justify-content-end">
+        {{/* Theme Toggler */}}
+        <button id="shock-theme-toggle" type="button" class="btn btn-secondary m-1" title="Toggle Theme">
+          <span class="theme-auto">{{ partial "icon" "contrast" }}</span>
+          <span class="theme-light" style="display: none;">{{ partial "icon" "sun" }}</span>
+          <span class="theme-dark" style="display: none;">{{ partial "icon" "moon" }}</span>
+        </button>
+
+        {{/* Menu Toggler */}}
+        {{ if .Site.Menus.main }}
+        <button type="button" class="btn btn-secondary m-1" data-bs-toggle="offcanvas" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items">
+          {{ partial "icon" "menu" }}
+        </button>
+        {{ end }}
+      </div>
+      {{/* /Togglers */}}
+
     </div>
   </nav>
 </header>

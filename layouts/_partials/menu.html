@@ -1,0 +1,28 @@
+{{/* Offcanvas Menu */}}
+
+<div id="navbar-menu-items" class="offcanvas offcanvas-end bg-body-tertiary h-100">
+  <div class="sidebar-content overflow-x-hidden overflow-y-scroll vh-100">
+
+    <div class="offcanvas-header">
+      <h5 class="m-0">Menu</h5>
+      <button class="btn btn-secondary ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#navbar-menu-items" aria-label="Close">
+        {{ partial "icon" "panel-right-close" }}
+      </button>
+    </div>
+
+    <nav id="TableOfContents">
+      {{ if .Site.Menus.main }}
+        <ul class="navbar-nav fs-5">
+          {{ range sort .Site.Menus.main "Weight" }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </nav>
+
+  </div>
+</div>

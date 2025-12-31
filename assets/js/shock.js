@@ -1,7 +1,6 @@
 "use strict";
 
 // Bootstrap imports
-import Collapse from './bootstrap/collapse.js'
 import Offcanvas from './bootstrap/offcanvas.js'
 import ScrollSpy from './bootstrap/scrollspy.js'
 
