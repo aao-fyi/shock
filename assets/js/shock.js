@@ -2,7 +2,6 @@
 
 // Bootstrap imports
 import Offcanvas from './bootstrap/offcanvas.js'
-import ScrollSpy from './bootstrap/scrollspy.js'
 
 document.addEventListener("DOMContentLoaded", function() {
     // Check namespace
@@ -118,16 +117,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            const offcanvasDivID = offcanvasDiv.id;
-            if (!(offcanvasDivID)) {
-                console.error("Offcanvas element does not have ID.");
-                return;
-            }
+            const dismissButton = offcanvasDiv.querySelector('[data-bs-dismiss="offcanvas"]');
 
-            const offcanvasDivLinks = offcanvasDiv.querySelectorAll("a");
-            offcanvasDivLinks.forEach(offcanvasDivLink => {
-               offcanvasDivLink.setAttribute('data-bs-dismiss', 'offcanvas');
-               offcanvasDivLink.setAttribute('data-bs-target', `#${offcanvasDivID}`);
+            offcanvasDiv.querySelectorAll('a').forEach(offcanvasDivLink => {
+                offcanvasDivLink.addEventListener('click', function() {
+                    if (dismissButton) {
+                        dismissButton.click();
+                    }
+                });
             });
         },
 

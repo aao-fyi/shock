@@ -52,7 +52,7 @@
   <div class="row g-0">
     {{/* Sidebar */}}
     {{ if $sidebarStatePage }}
-      <aside class="col col-lg-3 col-xxl-2">
+      <aside class="col col-lg-3 col-xxl-2 bg-body-tertiary">
         {{ partial "sidebar" . }}
       </aside>
     {{ end }}
@@ -67,7 +67,7 @@
       {{/* /Banner */}}
 
       {{/* Content */}}
-      <div class="container-fluid my-4" {{ if $sidebarStatePage }}data-bs-spy="scroll" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}"{{ end }} data-bs-smooth-scroll="true">
+      <div class="container-fluid my-4">
         {{/* Breadcrumb */}}
         {{ if $breadcrumbStatePage }}
           {{ partial "breadcrumb" . }}
@@ -89,9 +89,7 @@
 
   {{/* Menu */}}
   {{ if .Site.Menus.main }}
-    <aside>
-      {{ partial "menu" . }}
-    </aside>
+    {{ partial "menu" . }}
   {{ end }}
   {{/* /Menu */}}
 
