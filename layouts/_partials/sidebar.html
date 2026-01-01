@@ -6,8 +6,9 @@
 {{ end }}
 
 <div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-lg offcanvas-start bg-body-tertiary h-100 {{ if not $pagesSidebar }}offcanvas-dismiss-js{{ end }}">
-  <div class="sidebar-content overflow-x-hidden overflow-y-scroll vh-100">
-    <div class="offcanvas-header">
+  <div class="sidebar-content overflow-x-hidden overflow-y-scroll h-100">
+
+    <div class="offcanvas-header border-bottom">
       <h5 class="m-0">Table of Contents</h5>
       <button class="btn btn-secondary ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-label="Close">
         {{ partial "icon" "panel-left-close" }}

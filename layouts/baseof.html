@@ -40,7 +40,7 @@
   {{ $footerStick := .Site.Params.footer.stick }}
 {{/* /Variables */}}
 
-<body {{ if and (not $sidebarStatePage) ($footerStick) }}class="d-flex flex-column min-vh-100"{{ end }}>
+<body class="text-break {{ if and (not $sidebarStatePage) ($footerStick) }}d-flex flex-column min-vh-100{{ end }}">
   {{/* Header */}}
     {{ if .Site.Params.header.state }}
       {{- partial "header.html" . -}}
@@ -52,7 +52,7 @@
   <div class="row g-0">
     {{/* Sidebar */}}
     {{ if $sidebarStatePage }}
-      <aside class="col col-lg-3 col-xxl-2 min-vh-100">
+      <aside class="col col-lg-3 col-xxl-2">
         {{ partial "sidebar" . }}
       </aside>
     {{ end }}
