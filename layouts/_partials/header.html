@@ -1,5 +1,5 @@
 <header class="{{ with .Site.Params.header.fixedTop }}sticky-top{{ end }} bg-primary {{ with .Site.Params.header.shadow }}shadow{{ end }}">
-  <nav class="container-fluid navbar-dark py-2">
+  <nav class="container-fluid py-2">
     <div class="row">
 
       {{/* Sidebar */}}
@@ -28,7 +28,7 @@
       {{/* Brand */}}
       {{ if or (.Site.Params.header.brandLogo) (.Site.Params.header.brandText) }}
       <div class="col d-flex {{ if $sidebarState }}justify-content-center{{ end }} justify-content-lg-start">
-        <a class="navbar-brand lh-lg fs-4" href="{{ .Site.BaseURL }}">
+        <a class="header-brand fs-4" href="{{ .Site.BaseURL }}">
 
           {{/* Brand Logo */}}
           {{ if .Site.Params.header.brandLogo }}
@@ -78,7 +78,7 @@
 
         {{/* Menu Toggler */}}
         {{ if .Site.Menus.main }}
-        <button type="button" class="btn btn-secondary m-1" data-bs-toggle="offcanvas" data-bs-target="#navbar-menu-items" aria-controls="navbar-menu-items">
+        <button type="button" class="btn btn-secondary m-1" data-bs-toggle="offcanvas" data-bs-target="#nav-menu-items" aria-controls="nav-menu-items">
           {{ partial "icon" "menu" }}
         </button>
         {{ end }}
