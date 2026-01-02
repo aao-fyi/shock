@@ -52,10 +52,17 @@ enableRobotsTXT = true
     url = 'https://gitlab.com/aao-fyi/shock'
   # Footer
   [[menu.footer]]
-    identifier = 'privacy'
-    name = 'Privacy'
-    url = 'https://aao.fyi/privacy'
-  [[menu.footer]]
     identifier = 'sitemap'
     name = 'Sitemap'
+    weight = '10'
     url = '/sitemap.xml'
+  [[menu.footer]]
+    identifier = 'privacy'
+    name = 'Privacy'
+    weight = '90'
+    url = 'https://aao.fyi/privacy/'
+  [[menu.footer]]
+    identifier = 'terms'
+    name = 'Terms'
+    weight = '90'
+    url = 'https://aao.fyi/terms/'

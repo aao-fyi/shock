@@ -10,12 +10,14 @@ description = 'Shock is a Hugo theme for static sites.'
   brandLogo = false
   brandText = true
   fixedTop = true
+  shadow = true
 
 # Banner
 [banner]
   home = true
   section = true
   single = false
+  shadow = true
 
 # Sidebar
 [sidebar]
@@ -27,7 +29,7 @@ description = 'Shock is a Hugo theme for static sites.'
 # Breadcrumbs
 [breadcrumb]
   home = true
-  homeIcon = 'server-crash'
+  homeIcon = 'folder-root'
   section = true
   single = true
 
@@ -42,6 +44,7 @@ description = 'Shock is a Hugo theme for static sites.'
 [footer]
   state = true
   stick = true
+  shadow = true
 
 # Connect
 [connect]
@@ -51,11 +54,13 @@ description = 'Shock is a Hugo theme for static sites.'
 [copyright]
   name = ''
   link = ''
-  year = ''
+  year = '2022'
 
 # Logo
 [logo]
+  mainSVG = 'img/logo/logo.svg'
   mainPNG = 'img/logo/logo.png'
+  brandSVG = 'img/logo/brand.svg'
   brandPNG = 'img/logo/brand.png'
 
 # Manifest
