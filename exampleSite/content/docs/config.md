@@ -13,12 +13,6 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 
 ## params.toml
 
-### Bootstrap
-
-| `[bootstrap]` | Type | Default | Description |
-| ------------- | ---- | ------- | ----------- |
-| `javascript` | bool | `true` | Toggle Bootstrap JavaScript. |
-
 ### PostCSS
 
 | `[postCSS]` | Type | Default | Description |
@@ -33,6 +27,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `brandLogo` | bool | `false` | Toggle header brand logo. |
 | `brandText` | bool | `true` | Toggle header brand text. |
 | `fixedTop` | bool | `true` | Toggle header stick-state. |
+| `shadow` | bool | `true` | Toggle header box-shadow. |
 
 ### Banner
 
@@ -41,6 +36,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | `home` | bool | `true` | Toggle banner on home page. |
 | `section` | bool | `true` | Toggle banner on section pages. |
 | `single` | bool | `false` | Toggle banner on single pages. |
+| `shadow` | bool | `true` | Toggle banner box-shadow. |
 
 ### Sidebar
 
@@ -75,6 +71,7 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | ---------- | ---- | ------- | ----------- |
 | `state` | bool | `true` | Toggle footer state. |
 | `stick` | bool | `true` | If footer should stick to the bottom of the page when there is not enough content to fill the page. |
+| `shadow` | bool | `true` | Toggle footer box-shadow. |
 
 ### Connect
 
@@ -94,8 +91,10 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 
 | `[logo]` | Type | Default | Description |
 | -------- | ---- | ------- | ----------- |
-| `mainPNG` | string | `'img/logo/logo.png'` | Path to primary logo image. |
-| `brandPNG` | string | `'img/logo/brand.png'` | Path to logo image used in header/nav. |
+| `mainSVG` | string | `'img/logo/logo.svg'` | Path to primary logo SVG. |
+| `mainPNG` | string | `'img/logo/logo.png'` | Path to primary logo image. Only used if `mainSVG` missing. |
+| `brandSVG` | string | `'img/logo/brand.svg'` | Path to logo SVG used in header/nav. |
+| `brandPNG` | string | `'img/logo/brand.png'` | Path to logo image used in header/nav. Only used if `brandSVG` missing. |
 
 ### Manifest
 Configuration for generating the `manifest.json` file.

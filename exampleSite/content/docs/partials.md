@@ -20,8 +20,67 @@ Renders a breadcrumb trail of the page ancestors, as defined by Hugo. Utilizes b
 {{ partial "breadcrumb" . }}
 ```
 
+## Button
+Creates a button with a link. Parameters can be passed directly or from a variable.
+
+| Parameter | Description |
+| --------- | ----------- |
+| `url` | Button target link. |
+| `title` | Button text. |
+| `type` | Bootstrap color scheme for button. |
+
+```html
+{{ partial "button" (dict
+  "url" "https://example.com/"
+  "title" "Visit Example"
+  "type" "primary"
+) }}
+```
+
+```bash
+{{ $buttonProps := dict
+  "url" "https://example.com/"
+  "title" "Visit Example"
+  "type" "primary"
+}}
+
+{{ partial "button" $buttonProps }}
+```
+
+## Card
+Creates a card. Parameters can be passed directly or from a variable. All values are optional.
+
+| Parameter | Description |
+| --------- | ----------- |
+| `title` | Card title. |
+| `icon` | Icon to put next to title. |
+| `description` | Card body text. |
+| `url` | Button with link in card footer. |
+| `urltext` | Button text for `url`, text is "View" by default. |
+| `urllist` | URL list for multiple buttons in card footer. |
+
+```html
+{{ partial "card" (dict 
+  "title" "Example Card"
+  "icon" "globe"
+  "description" "Example card with example text."
+  "url" "https://example.com/"
+) }}
+```
+
+```html
+{{ $cardProps := dict 
+  "title" "Example Card"
+  "icon" "globe"
+  "description" "Example card with example text."
+  "url" "https://example.com/"
+}}
+
+{{ partial "card" $cardProps }}
+```
+
 ## Card Tree
-Creates navigation cards for a given context. On the `home` page, creates cards for sections only. On `section` and `page` pages, creates cards for all pages. Includes a page counter when multiple pages are nested.
+Creates navigation cards for a given context. On the `home` page, creates cards for sections only. On `section` and `page` pages, creates cards for all pages. Includes a page counter when multiple pages are nested. Uses card partial to create cards.
 
 ```html
 {{ partial "card-tree" . }}
@@ -124,13 +183,20 @@ Load specified brand icon from Simple Icons icon pack.
 The `icon-brand` partial has a matching shortcode.
 
 ```md
-{{</* icon "hugo" */>}}
+{{</* icon-brand "hugo" */>}}
 ```
 
 | Shortcode Example | Output | Notes |
 | ----------------- | ------ | ----- |
 | `{{</* icon-brand "hugo" */>}}` | {{< icon-brand "hugo" >}} | Icon from Simple Icons. |
 | `{{</* icon-brand "codeberg" */>}}` | {{< icon-brand "codeberg" >}} | Icon from Simple Icons. |
+
+## Include
+Include a the content of any file. Does not markdownify it.
+
+```html
+{{ partial "include" . }}
+```
 
 ## Include Markdown
 Include a markdown file and markdownify it.
@@ -164,8 +230,15 @@ The `lastmod` partial has a matching shortcode.
 | ----------------- | ------ | ----- |
 | `{{</* lastmod */>}}` | {{< lastmod >}} | Works as markdown or HTML shortcode. Only HTML variant will integrate with document formatting, as seen here. |
 
+## Menu
+Render the `main` Hugo menu as a Bootstrap offcanvas element.
+
+```html
+{{ partial "menu" . }}
+```
+
 ## Sidebar
-Render sidebar on page. For home and section pages this will include links and sub-links to section content. For single pages this will include a table of contents of the page.
+Render sidebar on page as a Bootstrap offcanvas element. For home and section pages this will include links and sub-links to section content. For single pages this will include a table of contents of the page.
 
 ```html
 {{ partial "sidebar" . }}

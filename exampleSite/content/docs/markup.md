@@ -36,7 +36,7 @@ apt install hugo
 ```
 
 ## Images
-Images will render as expected in Hugo, but include the `img-fluid` Bootstrap class.
+Images will render as expected in Hugo, but include the `img-fluid` Bootstrap class and are lazy.
 
 ## Links
 Links will render as expected in Hugo, but will open in a new tab (`_blank`) if detected to be an external link.

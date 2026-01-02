@@ -92,7 +92,17 @@ description = 'Your site description here.'
 
 ## Run
 
+### Git
+Initialize git for the project directory.
+
+```bash
+cd ./your-project.example.com
+git init --initial-branch=main
+```
+
 ### Update
+Update Hugo and the NPM modules.
+
 ```bash
 hugo mod get -u && hugo mod clean
 ```
