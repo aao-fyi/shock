@@ -1,6 +1,7 @@
 "use strict";
 
 // Bootstrap imports
+import Carousel from './bootstrap/carousel.js'
 import Offcanvas from './bootstrap/offcanvas.js'
 
 document.addEventListener("DOMContentLoaded", function() {
