@@ -2,7 +2,7 @@
 {{ $carouselID := (hash.FNV32a (printf "carousel-%s%s" .Page.Title (math.Rand | mul 99 | math.Ceil))) }}
 
 {{ if $carouselImages }}
-<div id="{{ $carouselID }}" class="carousel slide">
+<div id="{{ $carouselID }}" class="carousel slide carousel-fade">
 <div class="carousel-inner">
   {{ range $carouselIndex, $carouselImage := $carouselImages }}
     {{/* Make first image active */}}
