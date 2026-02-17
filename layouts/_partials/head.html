@@ -67,6 +67,13 @@
 {{ end }}
 
 <link
+  rel="preload"
+  as="style"
+  href="{{ $styleLink.RelPermalink }}"
+  integrity="{{ $styleLink.Data.Integrity }}"
+/>
+
+<link
   rel="stylesheet"
   href="{{ $styleLink.RelPermalink }}"
   integrity="{{ $styleLink.Data.Integrity }}"
