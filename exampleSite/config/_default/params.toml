@@ -4,6 +4,10 @@ description = 'Shock is a Hugo theme for static sites.'
 [postCSS]
   state = true
 
+# Head
+[head]
+  responseHeaders = true
+
 # Header
 [header]
   state = true

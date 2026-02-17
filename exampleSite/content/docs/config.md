@@ -19,6 +19,12 @@ Refer to the [Hugo configuration documentation](https://gohugo.io/getting-starte
 | ----------- | ---- | ------- | ----------- |
 | `state` | bool | `false` | Toggle PostCSS for CSS removal. Requires `wrieStats` to be enabled in Hugo configuration, `hugo.toml`. |
 
+### Head
+
+| `[head]` | Type | Default | Description |
+| -------- | ---- | ------- | ----------- |
+| `responseHeaders` | bool | `false` | Toggle `_headers` file defining HTTP response headers. For use with Cloudflare Pages or Netlify. |
+
 ### Header
 
 | `[header]` | Type | Default | Description |

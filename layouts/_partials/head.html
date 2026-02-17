@@ -82,3 +82,9 @@
   {{ $manifestJSON := resources.Get "manifest.go.json" | resources.ExecuteAsTemplate "manifest.json" . }}
   <link rel="manifest" href="{{ $manifestJSON.RelPermalink }}" />
 {{ end }}
+
+{{/* ResponseHeaders */}}
+{{ if (.Site.Params.head.responseHeaders) }}
+  {{ $responseHeaders := resources.Get "_headers" }}
+  <!--meta name="headers" content="{{ $responseHeaders.RelPermalink }}" /-->
+{{ end }}
