@@ -1,6 +1,6 @@
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests
-  Permissions-Policy: autoplay=(self), camera=(), clipboard-read=(), clipboard-write=(self), fullscreen=(), geolocation=(), gyroscope=(), magneticometer=(), midi=(), payment=(), usb=(), vr=(), wake-lock=()
+  Permissions-Policy: autoplay=(self), camera=(), clipboard-read=(), clipboard-write=(self), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), midi=(), payment=(), usb=(), vr=(), wake-lock=()
   Referrer-Policy: no-referrer
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
