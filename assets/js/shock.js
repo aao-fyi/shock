@@ -87,7 +87,13 @@ document.addEventListener("DOMContentLoaded", function() {
             Shock.Theme.states.forEach((state, stateIndex) => {
                 const themeSpan = themeButton.querySelector(state.selector);
                 if (themeSpan) {
-                    themeSpan.style.display = (stateIndex === Shock.Theme.stateIndex) ? 'inline' : 'none';
+                    if (stateIndex === Shock.Theme.stateIndex) {
+                        themeSpan.classList.add('d-inline');
+                        themeSpan.classList.remove('d-none');
+                    } else {
+                        themeSpan.classList.add('d-none');
+                        themeSpan.classList.remove('d-inline');
+                    }
                 }
             });
         },
