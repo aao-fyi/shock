@@ -40,7 +40,7 @@
   {{ $footerStick := .Site.Params.footer.stick }}
 {{/* /Variables */}}
 
-<body class="text-break {{ if and (not $sidebarStatePage) ($footerStick) }}d-flex flex-column min-vh-100{{ end }}">
+<body class="{{ if and (not $sidebarStatePage) ($footerStick) }}d-flex flex-column min-vh-100{{ end }}">
   {{/* Header */}}
     {{ if .Site.Params.header.state }}
       {{- partial "header.html" . -}}

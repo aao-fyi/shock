@@ -2,4 +2,5 @@
   href="{{ .Destination | safeURL }}"
   {{ with .Title }}title="{{ . }}"{{ end }}
   {{ if strings.HasPrefix .Destination "http" }}target="_blank" rel="noopener noreferrer"{{ end }}
+  class="text-break"
 >{{ .Text | safeHTML }}</a>

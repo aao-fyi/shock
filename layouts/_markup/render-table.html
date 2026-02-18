@@ -1,5 +1,5 @@
 <table
-  class="table d-block d-sm-table overflow-auto"
+  class="table d-block d-md-table overflow-auto"
   {{- range $k, $v := .Attributes }}
     {{- if $v }}
       {{- printf " %s=%q" $k $v | safeHTMLAttr }}
