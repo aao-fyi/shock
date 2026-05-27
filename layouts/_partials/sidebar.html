@@ -5,14 +5,20 @@
   {{ $pagesSidebar = true }}
 {{ end }}
 
-<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="sidebar offcanvas-lg offcanvas-start vh-100 {{ if not $pagesSidebar }}offcanvas-dismiss-js{{ end }}">
-  <div class="sidebar-content overflow-x-hidden overflow-y-scroll h-100 pb-4">
+{{/* Offcanvas Checkbox */}}
+<input type="checkbox" id="offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-checkbox" />
 
+{{/* Offcanvas Backdrop */}}
+<div class="offcanvas-backdrop"></div>
+
+{{/* Offcanvas Content */}}
+<div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="sidebar offcanvas offcanvas-lg offcanvas-start vh-100 {{ if not $pagesSidebar }}offcanvas-dismiss-js{{ end }}">
+  <div class="sidebar-content overflow-x-hidden overflow-y-scroll h-100 pb-4">
     <div class="offcanvas-header border-bottom">
       <h5 class="m-0">Table of Contents</h5>
-      <button class="btn btn-secondary ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-label="Close">
+      <label class="btn btn-secondary ms-auto" type="button" data-bs-target="#offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" for="offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
         {{ partial "icon" "panel-left-close" }}
-      </button>
+      </label>
     </div>
 
     {{ if $pagesSidebar }}

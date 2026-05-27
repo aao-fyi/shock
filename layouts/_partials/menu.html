@@ -1,13 +1,19 @@
 {{/* Offcanvas Menu */}}
 
+{{/* Offcanvas Checkbox */}}
+<input type="checkbox" id="offcanvas-nav-menu-items" class="offcanvas-checkbox" />
+
+{{/* Offcanvas Backdrop */}}
+<div class="offcanvas-backdrop"></div>
+
 <aside id="nav-menu-items" class="offcanvas offcanvas-end h-100">
   <div class="sidebar-content overflow-x-hidden overflow-y-scroll vh-100">
 
     <div class="offcanvas-header border-bottom">
       <h5 class="m-0">Menu</h5>
-      <button class="btn btn-secondary ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#nav-menu-items" aria-label="Close">
+      <label class="btn btn-secondary ms-auto" type="button" data-bs-target="#offcanvas-nav-menu-items" for="offcanvas-nav-menu-items" aria-controls="nav-menu-items">
         {{ partial "icon" "panel-right-close" }}
-      </button>
+      </label>
     </div>
 
     <nav id="TableOfContents">

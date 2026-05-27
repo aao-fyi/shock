@@ -84,17 +84,6 @@
                 border-top: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
                 transform: translateY(100%);
             }
-
-            &.showing,
-            &.show:not(.hiding) {
-                transform: none;
-            }
-
-            &.showing,
-            &.hiding,
-            &.show {
-                visibility: visible;
-            }
         }
 
         @if not ($infix == "") {
@@ -102,6 +91,8 @@
                 --#{$prefix}offcanvas-height: auto;
                 --#{$prefix}offcanvas-border-width: 0;
                 background-color: transparent !important; // stylelint-disable-line declaration-no-important
+                transform: none !important;
+                visibility: visible !important;
 
                 .offcanvas-header {
                     display: none;
@@ -122,6 +113,8 @@
 
 .offcanvas-backdrop {
     @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, $offcanvas-backdrop-opacity);
+    display: none;
+    opacity: $offcanvas-backdrop-opacity;
 }
 
 .offcanvas-header {
@@ -148,4 +141,24 @@
     flex-grow: 1;
     padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
     overflow-y: auto;
+}
+
+.offcanvas-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    pointer-events: none;
+
+    &:checked ~ .offcanvas-backdrop {
+        display: block;
+    }
+
+    &:checked ~ .offcanvas {
+        transform: none;
+        visibility: visible;
+    }
 }

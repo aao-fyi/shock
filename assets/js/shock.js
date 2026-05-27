@@ -2,7 +2,6 @@
 
 // Bootstrap imports
 import Carousel from './bootstrap/carousel.js'
-import Offcanvas from './bootstrap/offcanvas.js'
 
 document.addEventListener("DOMContentLoaded", function() {
     // Check namespace
@@ -116,31 +115,34 @@ document.addEventListener("DOMContentLoaded", function() {
     },
 
     Shock.Offcanvas = {
-        // Add Dismiss Attributes
-        // Accepts element as input
-        addDismissAttributes: function(offcanvasDiv) {
-            if (!offcanvasDiv || !(offcanvasDiv instanceof Element)) {
-                console.error("Offcanvas input invalid or not an element.");
+        // Close Offcanvas
+        closeOffcanvas: function(offcanvasCheckbox) {
+            if (!offcanvasCheckbox || !(offcanvasCheckbox?.type === 'checkbox')) {
+                console.error("Offcanvas checkbox invalid.");
                 return;
             }
 
-            const dismissButton = offcanvasDiv.querySelector('[data-bs-dismiss="offcanvas"]');
-
-            offcanvasDiv.querySelectorAll('a').forEach(offcanvasDivLink => {
-                offcanvasDivLink.addEventListener('click', function() {
-                    if (dismissButton) {
-                        dismissButton.click();
-                    }
-                });
-            });
+            offcanvasCheckbox.checked = false;
         },
 
         // Init
-        // Make all offcanvas dismissable
+        // Make all offcanvasClass dismissable
         init: function(offcanvasClass) {
-            document.querySelectorAll(`.${offcanvasClass}`).forEach((offcanvasDiv) =>
-                Shock.Offcanvas.addDismissAttributes(offcanvasDiv)
-            );
+            // Make offcanvas links dismiss offcanvas
+            document.querySelectorAll(`.${offcanvasClass}`).forEach((offcanvasDiv) => {
+                offcanvasDiv.querySelectorAll('a').forEach((offcanvasLink) => {
+                    offcanvasLink.addEventListener('click', () => {
+                        Shock.Offcanvas.closeOffcanvas(offcanvasDiv.previousElementSibling?.previousElementSibling);
+                    });
+                });
+            });
+
+            // Make offcanvas backdrop dismiss offcanvas
+            document.querySelectorAll('.offcanvas-backdrop').forEach((offcanvasBackdrop) => {
+                offcanvasBackdrop.addEventListener('click', () => {
+                    Shock.Offcanvas.closeOffcanvas(offcanvasBackdrop.previousElementSibling);
+                });
+            });
         }
     }
 

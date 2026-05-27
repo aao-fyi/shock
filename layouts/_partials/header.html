@@ -18,9 +18,9 @@
 
       {{ if $sidebarState }}
       <div class="col d-flex justify-content-start d-lg-none">
-        <button class="btn btn-secondary m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
+        <label class="btn btn-secondary m-1" type="button" data-bs-target="#offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" for="offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" aria-controls="{{ .Site.Params.sidebar.tableofcontentsID }}">
           {{ partial "icon" "panel-left-open" }}
-        </button>
+        </label>
       </div>
       {{ end }}
       {{/* /Sidebar */}}
@@ -78,9 +78,9 @@
 
         {{/* Menu Toggler */}}
         {{ if .Site.Menus.main }}
-        <button type="button" class="btn btn-secondary m-1" data-bs-toggle="offcanvas" data-bs-target="#nav-menu-items" aria-controls="nav-menu-items">
+        <label class="btn btn-secondary m-1" type="button" data-bs-target="#offcanvas-nav-menu-items" for="offcanvas-nav-menu-items" aria-controls="nav-menu-items">
           {{ partial "icon" "menu" }}
-        </button>
+        </label>
         {{ end }}
       </div>
       {{/* /Togglers */}}
