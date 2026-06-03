@@ -5,4 +5,6 @@
   {{ $code = printf "# %s\n%s" (humanize $dist) $code }}
 {{ end }}
 
-{{ highlight $code .Type }}
+{{ $opts := dict "noClasses" "false" }}
+
+{{ highlight $code .Type $opts }}
