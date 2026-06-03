@@ -2,22 +2,20 @@
 {{ $carouselID := (hash.FNV32a (printf "carousel-%s%s" .Page.Title (math.Rand | mul 99 | math.Ceil))) }}
 
 {{ if $carouselImages }}
-<div id="{{ $carouselID }}" class="carousel slide carousel-fade">
+<div id="{{ $carouselID }}" class="carousel">
 <div class="carousel-inner">
   {{ range $carouselIndex, $carouselImage := $carouselImages }}
-    {{/* Make first image active */}}
-    <div class="carousel-item {{ if eq $carouselIndex 0 }}active{{ end }}">
+    <input id="{{ $carouselID }}-{{ $carouselIndex }}" name="{{ $carouselID }}" class="carousel-radio" type="radio" {{ if eq $carouselIndex 0 }}checked{{ end }}>
+    <div class="carousel-item ratio ratio-16x9">
       {{- partial "carousel-image" $carouselImage -}}
     </div>
   {{ end }}
+</div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#{{ $carouselID }}" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#{{ $carouselID }}" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<div class="carousel-indicators">
+  {{ range $carouselIndex, $carouselImage := $carouselImages }}
+    <label for="{{ $carouselID }}-{{ $carouselIndex }}" aria-controls="{{ $carouselID }}"></label>
+  {{ end }}
+</div>
 </div>
 {{ end }}

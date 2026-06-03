@@ -41,49 +41,13 @@
     @include transition($carousel-transition);
 }
 
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
-    display: block;
-}
+.carousel-radio {
+    display: none;
 
-.carousel-item-next:not(.carousel-item-start),
-.active.carousel-item-end {
-    transform: translateX(100%);
-}
-
-.carousel-item-prev:not(.carousel-item-end),
-.active.carousel-item-start {
-    transform: translateX(-100%);
-}
-
-
-//
-// Alternate transitions
-//
-
-.carousel-fade {
-    .carousel-item {
-        opacity: 0;
-        transition-property: opacity;
-        transform: none;
-    }
-
-    .carousel-item.active,
-    .carousel-item-next.carousel-item-start,
-    .carousel-item-prev.carousel-item-end {
-        z-index: 1;
-        opacity: 1;
-    }
-
-    .active.carousel-item-start,
-    .active.carousel-item-end {
-        z-index: 0;
-        opacity: 0;
-        @include transition(opacity 0s $carousel-transition-duration);
+    &:checked + .carousel-item {
+        display: block;
     }
 }
-
 
 //
 // Left/right controls for nav
@@ -107,6 +71,7 @@
     filter: var(--#{$prefix}carousel-control-icon-filter);
     border: 0;
     opacity: $carousel-control-opacity;
+    cursor: pointer;
     @include transition($carousel-control-transition);
 
     // Hover/focus state
@@ -159,12 +124,11 @@
     display: flex;
     justify-content: center;
     padding: 0;
-    // Use the .carousel-control's width as margin so we don't overlay those
     margin-right: $carousel-control-width;
     margin-bottom: 1rem;
     margin-left: $carousel-control-width;
 
-    [data-bs-target] {
+    label {
         box-sizing: content-box;
         flex: 0 1 auto;
         width: $carousel-indicator-width;
@@ -184,7 +148,7 @@
         @include transition($carousel-indicator-transition);
     }
 
-    .active {
+    label:hover, label:focus, label:active {
         opacity: $carousel-indicator-active-opacity;
     }
 }
@@ -229,3 +193,4 @@
         @include carousel-dark();
     }
 }
+

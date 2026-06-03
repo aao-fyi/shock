@@ -1,8 +1,5 @@
 "use strict";
 
-// Bootstrap imports
-import Carousel from './bootstrap/carousel.js'
-
 document.addEventListener("DOMContentLoaded", function() {
     // Check namespace
     window.Shock = window.Shock || {};
