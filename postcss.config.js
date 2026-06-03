@@ -12,7 +12,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   sourceMap: false,
   safelist: {
     standard: [
-      'highlight', 'highlight-copy', 'highlight-wrapper',
+      'chroma', 'highlight', 'highlight-copy', 'highlight-wrapper',
       'bottom-0',
       'd-block', 'd-flex', 'd-inline',
       'end-0',
