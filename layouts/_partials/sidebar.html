@@ -5,11 +5,8 @@
   {{ $pagesSidebar = true }}
 {{ end }}
 
-{{/* Offcanvas Checkbox */}}
-<input type="checkbox" id="offcanvas-{{ .Site.Params.sidebar.tableofcontentsID }}" class="offcanvas-checkbox" />
-
-{{/* Offcanvas Backdrop */}}
-<div class="offcanvas-backdrop"></div>
+{{/* Offcanvas */}}
+{{ partial "offcanvas" .Site.Params.sidebar.tableofcontentsID }}
 
 {{/* Offcanvas Content */}}
 <div id="{{ .Site.Params.sidebar.tableofcontentsID }}" class="sidebar offcanvas offcanvas-lg offcanvas-start vh-100 {{ if not $pagesSidebar }}offcanvas-dismiss-js{{ end }}">

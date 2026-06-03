@@ -123,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
         },
 
         // Init
-        // Make all offcanvasClass dismissable
         init: function(offcanvasClass) {
             // Make offcanvas links dismiss offcanvas
             document.querySelectorAll(`.${offcanvasClass}`).forEach((offcanvasDiv) => {
@@ -131,13 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     offcanvasLink.addEventListener('click', () => {
                         Shock.Offcanvas.closeOffcanvas(offcanvasDiv.previousElementSibling?.previousElementSibling);
                     });
-                });
-            });
-
-            // Make offcanvas backdrop dismiss offcanvas
-            document.querySelectorAll('.offcanvas-backdrop').forEach((offcanvasBackdrop) => {
-                offcanvasBackdrop.addEventListener('click', () => {
-                    Shock.Offcanvas.closeOffcanvas(offcanvasBackdrop.previousElementSibling);
                 });
             });
         }

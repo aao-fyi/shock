@@ -1,0 +1,7 @@
+{{ $offcanvasID := urlize . }}
+
+{{/* Offcanvas Checkbox */}}
+<input type="checkbox" id="offcanvas-{{ $offcanvasID }}" class="offcanvas-checkbox" />
+
+{{/* Offcanvas Backdrop */}}
+<label class="offcanvas-backdrop" for="offcanvas-{{ $offcanvasID }}" aria-controls="{{ $offcanvasID }}"></label>
