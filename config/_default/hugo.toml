@@ -15,6 +15,11 @@ enableRobotsTXT = true
   # PostCSS
   writeStats = true
 
+# Chroma
+[markup.highlight]
+  style = "monokai"
+  noClasses = false
+
 # Modules
 [module]
   # Version
