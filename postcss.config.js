@@ -12,7 +12,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   sourceMap: false,
   safelist: {
     standard: [
-      'chroma', 'highlight', 'highlight-copy', 'highlight-wrapper',
+      'highlight', 'highlight-copy', 'highlight-wrapper',
       'bottom-0',
       'd-block', 'd-flex', 'd-inline',
       'end-0',
@@ -25,7 +25,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
       'start-50',
       'top-0', 'top-50'
     ],
-    deep: []
+    deep: [/^chroma/]
   },
   dynamicAttributes: [
     'data-bs-theme',
