@@ -1,0 +1,10 @@
+{{ $carouselImages := (slice) }}
+
+{{ range seq 0 20 }}
+    {{ $carouselImage := $.Get . }}
+    {{ if $carouselImage }}
+        {{ $carouselImages = $carouselImages | append (resources.Get $carouselImage) }}
+    {{ end }}
+{{ end }}
+
+{{ partial "carousel" (dict "images" $carouselImages) }}
