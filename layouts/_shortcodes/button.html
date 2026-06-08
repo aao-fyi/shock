@@ -1,14 +1,7 @@
-{{/* Accepts list as input */}}
-{{ $buttonURL := default "" (.Get "url") }}
-{{ $buttonTitle := default "" (.Get "title") }}
-{{ $buttonIcon := default "" (.Get "icon") }}
-{{ $buttonBrand := default "" (.Get "brand") }}
-{{ $buttonType := default "" (.Get "type") }}
-
 {{ partial "button" (dict
-  "url" $buttonURL
-  "title" $buttonTitle
-  "icon" $buttonIcon
-  "brand" $buttonBrand
-  "type" $buttonType
+  "url" (.Get "url")
+  "title" (.Get "title")
+  "icon" (.Get "icon")
+  "brand" (.Get "brand")
+  "type" (.Get "type")
 ) }}
