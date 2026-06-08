@@ -1,3 +1,5 @@
-{{/* Include file content */}}
-{{ $include := resources.Get . }}
-{{ $include.Content }}
+{{- if in (slice ".md" ".markdown" ".mdown" ".mkdn" ".mkd" ".mdwn") (path.Ext .) }}
+    {{- (resources.Get .).Content | markdownify -}}
+{{ else }}
+    {{- (resources.Get .).Content -}}
+{{ end -}}
