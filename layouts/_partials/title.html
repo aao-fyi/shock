@@ -1,4 +1,4 @@
-{{ if not (eq .Kind "home") }}
+{{ if not (eq .Page.Kind "home") }}
   {{ default .Page.Parent.Params.Title (.Page.Params.Title) }}
   |
 {{ end }}
