@@ -1,7 +1,7 @@
 ---
 title: "Markup"
 description: "Markup rendering when using Shock."
-weight: 36
+weight: 50
 icon: square-arrow-up
 draft: false
 ---

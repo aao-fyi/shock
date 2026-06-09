@@ -1,0 +1,12 @@
+[^hugo-ancestors]: The Hugo Authors. "[Ancestors](https://gohugo.io/methods/page/ancestors/)." 2026.
+[^hugo-content]: The Hugo Authors. "[Content](https://gohugo.io/methods/resource/content/)." 2026.
+[^hugo-copyright]: The Hugo Authors. "[Copyright](https://gohugo.io/methods/site/copyright/)." 2026.
+[^hugo-jsbuild]: The Hugo Authors. "[js.Build](https://gohugo.io/functions/js/build/)." 2026.
+[^hugo-lastmod]: The Hugo Authors. "[Lastmod](https://gohugo.io/methods/page/lastmod/)." 2026.
+[^hugo-menus]: The Hugo Authors. "[Menus](https://gohugo.io/methods/site/menus/)." 2026.
+[^hugo-path]: The Hugo Authors. "[Path](https://gohugo.io/functions/path/)." 2026.
+[^hugo-scss]: The Hugo Authors. "[css.Sass](https://gohugo.io/functions/css/sass/)." 2026.
+[^hugo-sections]: The Hugo Authors. "[Sections](https://gohugo.io/content-management/sections/)." 2026.
+[^hugo-title]: The Hugo Authors. "[Title](https://gohugo.io/methods/page/title/)." 2026.
+[^hugo-toc]: The Hugo Authors. "[TableOfContents](https://gohugo.io/methods/page/tableofcontents/)." 2026.
+[^hugo-transform]: The Hugo Authors. "[Transform](https://gohugo.io/functions/transform/)." 2026.
