@@ -17,7 +17,7 @@
           {{/* $image = $image.Filter (images.Overlay $watermark (sub $image.Width $watermark.Width) (sub $image.Height $watermark.Height)) */}}
       {{/* end */}}
 
-      {{ $image = $image | resources.Copy (printf "%s" $source.RelPermalink) }}
+      {{ $image = $image | resources.Copy (printf "%s" $carouselImage.RelPermalink) }}
       <img src="{{ $image.RelPermalink }}" class="d-block w-100 object-fit-contain" loading="lazy" alt="{{ humanize .Name }}" />
       {{/* Carousel Image */}}
     </div>
