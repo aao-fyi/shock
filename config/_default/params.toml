@@ -7,6 +7,8 @@ description = 'Shock is a Hugo theme for static sites.'
 # Head
 [head]
   responseHeaders = false
+  manifestState = true
+  manifestColor = "#333"
 
 # Header
 [header]
@@ -66,11 +68,6 @@ description = 'Shock is a Hugo theme for static sites.'
   mainPNG = 'img/logo/logo.png'
   brandSVG = 'img/logo/brand.svg'
   brandPNG = 'img/logo/brand.png'
-
-# Manifest
-[manifest]
-  state = true
-  background = "#333"
 
 # Robots
 [robots]
