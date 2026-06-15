@@ -22,7 +22,7 @@
   {{ range $treeRoot }}
     {{ $pageIcon := (default .Parent.Params.Icon .Page.Params.Icon) }}
     <div class="col">
-      {{ partial "card" (dict "title" .Page.Title "icon" $pageIcon "description" .Page.Description "url" .Page.RelPermalink) }}
+      {{ partial "card" (dict "title" .Page.Title "icon" $pageIcon "description" .Page.Description "url" .Page.RelPermalink "level" 2) }}
     </div>
   {{ end }}
 

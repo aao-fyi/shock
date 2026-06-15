@@ -5,11 +5,12 @@
 {{ $cardURL := .url }}
 {{ $cardURLList := .urllist }}
 {{ $cardURLText := (default "View" .urltext) }}
+{{ $cardLevel := (default 5 .level) }}
 
 <div class="card h-100 shadow">
 
 <div class="card-body">
-    {{ with $cardTitle }}<h5 class="card-title">{{ with $cardIcon }}{{ partial "icon" $cardIcon }} &nbsp; {{ end }}{{ $cardTitle }}</h5>{{ end }}
+    {{ with $cardTitle }}<h{{ $cardLevel }} class="card-title fs-4">{{ with $cardIcon }}{{ partial "icon" $cardIcon }} &nbsp; {{ end }}{{ $cardTitle }}</h{{ $cardLevel }}>{{ end }}
     {{ with $cardDescription }}<p class="card-text">{{ $cardDescription }}</p>{{ end }}
 </div>
 
