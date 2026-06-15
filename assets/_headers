@@ -1,4 +1,5 @@
 /*
+  Cross-Origin-Resource-Policy: same-origin
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'none'; connect-src 'self'; media-src 'self'; object-src 'none'; child-src 'self'; frame-src 'self'; worker-src 'self'; manifest-src 'self'; form-action 'self'; frame-ancestors 'self'; base-uri 'none'; upgrade-insecure-requests
   Permissions-Policy: autoplay=(self), camera=(), clipboard-read=(), clipboard-write=(self), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), midi=(), payment=(), usb=(), vr=(), wake-lock=()
   Referrer-Policy: no-referrer
